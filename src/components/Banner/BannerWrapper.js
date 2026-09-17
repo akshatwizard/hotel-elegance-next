@@ -3,7 +3,6 @@ async function getVideoUrl() {
     const res = await fetch(
       "https://www.inforbit.in/demo/hotel-elegance-backend/api/banner/video"
     );
-
     if (!res.ok) {
       throw new Error(`Failed to fetch video. Status: ${res.status}`);
     }
