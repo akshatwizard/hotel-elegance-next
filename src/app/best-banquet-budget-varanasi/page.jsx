@@ -1,6 +1,7 @@
 import React from 'react';
 import OnexBanquet from './OnexBanquet'; 
 import SapphireBanquet from './SapphireBanquet'; 
+import AssociatedBanquetHall from './AssociatedBanquetHall';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 async function getOnexBanquetData() {
     try {
@@ -80,6 +81,7 @@ export default async function BanquetsPage() {
             {/* Pass fetched data as props */}
             <OnexBanquet onexData={onexData} />
             <SapphireBanquet sapphireData={sapphireData} />
+            <AssociatedBanquetHall />
         </>
     );
 }
