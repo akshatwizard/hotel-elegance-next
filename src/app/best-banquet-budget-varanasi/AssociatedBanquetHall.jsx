@@ -26,7 +26,7 @@ const AssociatedBanquetHall = () => {
                                 target="_blank"
                                 className="inline-flex items-center gap-1.5 text-sm font-medium text-white border border-white/40 rounded-lg px-4 py-2 hover:bg-white/10 transition-colors w-fit mt-1"
                             >
-                                Explore Hotel <i className="icon-5" />
+                                Explore Banquet <i className="icon-5" />
                             </a>
                         </div>
                         <div className="relative h-64 md:h-auto order-1 lg:order-2">
