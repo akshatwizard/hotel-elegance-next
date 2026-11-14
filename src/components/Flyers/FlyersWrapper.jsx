@@ -1,10 +1,9 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import { Flyers } from "./Flyers";
 import { Suspense } from 'react';
 async function getFlyersUrl() {
     try {
-        const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/flyers-home"
-        );
+        const res = await fetch(API_BASE + "/flyers-home", { next: { revalidate: REVALIDATE_SECONDS } });
 
         if (!res.ok) {
             throw new Error(`Failed to fetch flyers. Status: ${res.status}`);
@@ -19,7 +18,7 @@ async function getFlyersUrl() {
         throw new Error("Flyers data not found");
     } catch (error) {
         console.error("Flyers API fetch error:", error);
-        return null;
+        return [];
     }
 }
 function FlyersSkeleton() {
@@ -30,7 +29,7 @@ function FlyersSkeleton() {
                 data-jarallax=""
                 data-speed="0.1"
                 data-imgposition="50% -100%"
-                style={{ backgroundImage: "url(assets/dev-img/feature-bg-1-1.webp)" }}
+                style={{ backgroundImage: "url(/assets/dev-img/feature-bg-1-1.webp)" }}
             ></div>
             <div className="overlay" />
             <div className="container">

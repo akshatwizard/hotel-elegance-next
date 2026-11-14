@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE } from "@/lib/config";
 import { useState, useEffect } from 'react';
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
@@ -20,7 +21,7 @@ export default function Banner({ initialVideo }) {
     const [videoError, setVideoError] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const API_URL = 'https://www.inforbit.in/demo/hotel-elegance-backend/api/home-enquiry';
+    const API_URL = API_BASE + '/home-enquiry';
 
     const handleSubmit = async (e) => {
         e.preventDefault();

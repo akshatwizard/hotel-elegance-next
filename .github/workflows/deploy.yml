@@ -18,7 +18,9 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           passphrase: ${{ secrets.SERVER_SSH_PASSPHRASE }}
           port: ${{ secrets.SERVER_SSH_PORT }}
+          script_stop: true
           script: |
+            set -e
             cd /home/jyddjslu/hotelEleganceApp
 
             export NVM_DIR="$HOME/.nvm"

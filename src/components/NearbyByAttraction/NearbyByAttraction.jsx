@@ -64,7 +64,7 @@ export const NearbyByAttraction = ({ initialAttractions = [] }) => {
                                                 <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-gray-50 text-gray-800 border-gray-300 shadow-lg hover:shadow-xl transition-all duration-300 w-10 h-10 rounded-full flex items-center justify-center" />
 
                                                 <CarouselContent className="py-1">
-                                                    {initialAttractions.map((attraction) => (
+                                                    {(initialAttractions ?? []).map((attraction) => (
                                                         <CarouselItem
                                                             key={attraction.id}
                                                             className="pl-4 basis-full sm:basis-1/2 lg:basis-1/2"

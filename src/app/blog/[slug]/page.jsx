@@ -1,30 +1,26 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
+import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import BlogDetailsPage from "./BlogDetailsPage";
 async function getBlogDetails(slug) {
     try {
-        const apiUrl = `https://www.inforbit.in/demo/hotel-elegance-backend/api/blog/${slug}`;
-        const res = await fetch(apiUrl);
-        if (!res.ok) {
-            console.error("Blog API failed:", res.status);
-            return null;
-        }
+        const apiUrl = `${API_BASE}/blog/${slug}`;
+        const res = await fetch(apiUrl, { next: { revalidate: REVALIDATE_SECONDS } });
+        if (res.status === 404) return { status: false };
+        if (!res.ok) throw new Error(`Blog API failed: ${res.status}`);
         return await res.json();
     } catch (error) {
+        // Backend unreachable: surface as a server error so crawlers retry
+        // instead of indexing a fake "not found" page.
         console.error("Blog details fetch error:", error);
-        return null;
+        throw error;
     }
 }
 export async function generateMetadata({ params }) {
     const { slug } = await params;
     const res = await getBlogDetails(slug);
     if (!res?.status) {
-        return {
-            title: "Blog Not Found - Hotel Elegance",
-            description: "The requested blog could not be found.",
-            alternates: {
-                canonical: `https://www.theelegance.co.in/blog/${slug}`,
-            },
-        };
+        return { title: "Blog Not Found | The Elegance Hotel", robots: { index: false } };
     }
     const blog = res.data;
     return {
@@ -44,27 +40,7 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
     const { slug } = await params;
     const blogRes = await getBlogDetails(slug);
-    if (!blogRes?.status) {
-        return (
-            <>
-                <Breadcrumb
-                    title="Blog Not Found"
-                    backgroundImage="/assets/dev-img/bread-banner/Tariff.jpg"
-                    mobileBackgroundImage=""
-                    subtitle=""
-                />
-                <section className="section-blog-details padding-t-50 padding-b-100">
-                    <div className="container text-center py-5">
-                        <h4 className="text-danger">Blog not found</h4>
-                        <p className="text-muted">
-                            The blog post you are looking for does not exist.
-                        </p>
-                        <p className="small text-muted">Slug: {slug}</p>
-                    </div>
-                </section>
-            </>
-        );
-    }
+    if (!blogRes?.status) notFound();
     return (
         <>
             <Breadcrumb

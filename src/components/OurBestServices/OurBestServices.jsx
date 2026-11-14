@@ -72,13 +72,13 @@ export const OurBestServices = () => {
                         <div className="rx-banner text-center rx-banner-effects">
                             <p>
                                 <img
-                                    src="assets/img/banner/left-shape.svg"
+                                    src="/assets/img/banner/left-shape.svg"
                                     alt="banner-left-shape"
                                     className="svg-img left-side"
                                 />
                                 Facilities
                                 <img
-                                    src="assets/img/banner/right-shape.svg"
+                                    src="/assets/img/banner/right-shape.svg"
                                     alt="banner-right-shape"
                                     className="svg-img right-side"
                                 />

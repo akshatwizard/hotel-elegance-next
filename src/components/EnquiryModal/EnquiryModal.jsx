@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE } from "@/lib/config";
 import React, { useState, useEffect } from 'react';
 
 const EnquiryModal = ({ isOpen, onClose, title = "Contact Us" }) => {
@@ -93,7 +94,7 @@ const EnquiryModal = ({ isOpen, onClose, title = "Contact Us" }) => {
                 subject: formData.subject.trim(),
                 message: formData.message.trim()
             };
-            const response = await fetch('https://www.inforbit.in/demo/hotel-elegance-backend/api/enquiry', {
+            const response = await fetch(API_BASE + '/enquiry', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

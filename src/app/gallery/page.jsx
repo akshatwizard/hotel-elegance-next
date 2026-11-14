@@ -1,11 +1,12 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import AlbumGallery from './AlbumGallery';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 
 async function getAlbumGallery(albumId = null) {
     try {
-        let url = 'https://www.inforbit.in/demo/hotel-elegance-backend/api/album-gallery';
-        let fetchOptions = { cache: "no-store" };
+        let url = API_BASE + '/album-gallery';
+        let fetchOptions = { next: { revalidate: REVALIDATE_SECONDS } };
         if (albumId) {
             url += `?album_id=${albumId}`;
         }

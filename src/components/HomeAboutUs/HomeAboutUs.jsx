@@ -12,7 +12,7 @@ export const HomeAboutUs = () => {
           >
             <div className="rx-about-img">
               <img
-                src="assets/dev-img/about-us.png"
+                src="/assets/dev-img/about-us.png"
                 alt="about"
                 className="rx-white-img"
               />

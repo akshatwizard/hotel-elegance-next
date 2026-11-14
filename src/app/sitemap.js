@@ -1,3 +1,4 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 export const dynamic = 'force-static';
 export const revalidate = 3600; 
 export default async function sitemap() {
@@ -84,7 +85,7 @@ export default async function sitemap() {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/hotel-rooms-in-varanasi/king-size-room`,
+      url: `${baseUrl}/hotel-rooms-in-varanasi/standard-room`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.85,
@@ -93,11 +94,9 @@ export default async function sitemap() {
 
   try {
     const nearByPlacesResponse = await fetch(
-      "https://www.inforbit.in/demo/hotel-elegance-backend/api/near-by-pace-list",
-    );
+      API_BASE + "/near-by-pace-list", { next: { revalidate: REVALIDATE_SECONDS } });
     const blogResponse = await fetch(
-      "https://www.inforbit.in/demo/hotel-elegance-backend/api/blog",
-    );
+      API_BASE + "/blog", { next: { revalidate: REVALIDATE_SECONDS } });
 
     let nearByPlaces = [];
     let blogPages = [];

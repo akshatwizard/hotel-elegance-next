@@ -10,7 +10,7 @@ export const Flyers = ({ initialFlyers = [] }) => {
                 data-jarallax=""
                 data-speed="0.1"
                 data-imgposition="50% -100%"
-                style={{ backgroundImage: "url(assets/dev-img/feature-bg-1-1.webp)" }}
+                style={{ backgroundImage: "url(/assets/dev-img/feature-bg-1-1.webp)" }}
             ></div>            
             <div className="container">                
                 <div className="row justify-content-md-center">

@@ -1,3 +1,4 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import { Suspense } from "react";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import BlogList from "./BlogList";
@@ -6,9 +7,9 @@ import BlogSkeleton from "./BlogSkeleton";
 async function getBlogList() {
     try {
         const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/blog",
+            API_BASE + "/blog",
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
 

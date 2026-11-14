@@ -1,3 +1,4 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
@@ -5,9 +6,9 @@ import { LeftShapeSVG, RightShapeSVG } from '@/components/SVG/BannerShapes';
 async function getFacilitiesData() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/facilities',
+            API_BASE + '/facilities',
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
         if (!res.ok) {

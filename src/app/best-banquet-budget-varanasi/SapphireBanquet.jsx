@@ -95,13 +95,13 @@ const SapphireBanquet = ({ sapphireData }) => {
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
                                     <img
-                                        src="assets/img/banner/left-shape.svg"
+                                        src="/assets/img/banner/left-shape.svg"
                                         alt="banner-left-shape"
                                         className="svg-img left-side"
                                     />
                                     Sapphire Banquet
                                     <img
-                                        src="assets/img/banner/right-shape.svg"
+                                        src="/assets/img/banner/right-shape.svg"
                                         alt="banner-right-shape"
                                         className="svg-img right-side"
                                     />
@@ -134,13 +134,13 @@ const SapphireBanquet = ({ sapphireData }) => {
                         <div className="rx-banner text-center rx-banner-effects">
                             <p>
                                 <img
-                                    src="assets/img/banner/left-shape.svg"
+                                    src="/assets/img/banner/left-shape.svg"
                                     alt="banner-left-shape"
                                     className="svg-img left-side"
                                 />
                                 Sapphire Banquet
                                 <img
-                                    src="assets/img/banner/right-shape.svg"
+                                    src="/assets/img/banner/right-shape.svg"
                                     alt="banner-right-shape"
                                     className="svg-img right-side"
                                 />

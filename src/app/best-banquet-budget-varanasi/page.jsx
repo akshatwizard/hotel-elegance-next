@@ -1,3 +1,4 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import OnexBanquet from './OnexBanquet'; 
 import SapphireBanquet from './SapphireBanquet'; 
@@ -6,9 +7,9 @@ import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 async function getOnexBanquetData() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/banquets/onex-banquet',
+            API_BASE + '/banquets/onex-banquet',
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         ); 
         if (!res.ok) {
@@ -24,9 +25,9 @@ async function getOnexBanquetData() {
 async function getSapphireBanquetData() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/banquets/sapphire-banquet',
+            API_BASE + '/banquets/sapphire-banquet',
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
         

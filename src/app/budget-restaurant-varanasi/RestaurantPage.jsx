@@ -83,13 +83,13 @@ export default function RestaurantPage() {
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
                                     <img
-                                        src="assets/img/banner/left-shape.svg"
+                                        src="/assets/img/banner/left-shape.svg"
                                         alt="banner-left-shape"
                                         className="svg-img left-side"
                                     />
                                     Urban Chaupal
                                     <img
-                                        src="assets/img/banner/right-shape.svg"
+                                        src="/assets/img/banner/right-shape.svg"
                                         alt="banner-right-shape"
                                         className="svg-img right-side"
                                     />
@@ -153,22 +153,22 @@ export default function RestaurantPage() {
                                             <div className="row mb-minus-24 rx-side-menu-image">
                                                 <div className="col-lg-6 col-12 mb-24">
                                                     <div className="inner-img radius-one">
-                                                        <img src="assets/dev-img/restaurant/Unmatched-Pampering-at-Elegance.jpg" alt="menu-1" />
+                                                        <img src="/assets/dev-img/restaurant/Unmatched-Pampering-at-Elegance.jpg" alt="menu-1" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-12 mb-24 d-none-991">
                                                     <div className="inner-img radius-two">
-                                                        <img src="assets/dev-img/restaurant/A-Haven-for-Indian-Cuisine-Lovers.jpg" alt="menu-2" />
+                                                        <img src="/assets/dev-img/restaurant/A-Haven-for-Indian-Cuisine-Lovers.jpg" alt="menu-2" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-12 mb-24 d-none-991">
                                                     <div className="inner-img radius-three">
-                                                        <img src="assets/dev-img/restaurant/Casual-Elegance-Timeless-Taste.jpg" alt="menu-3" />
+                                                        <img src="/assets/dev-img/restaurant/Casual-Elegance-Timeless-Taste.jpg" alt="menu-3" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-12 mb-24 d-none-991">
                                                     <div className="inner-img radius-four">
-                                                        <img src="assets/dev-img/restaurant/Capture-Moments-of-Delight.jpg" alt="menu-4" />
+                                                        <img src="/assets/dev-img/restaurant/Capture-Moments-of-Delight.jpg" alt="menu-4" />
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,4 +1,5 @@
 "use client";
+import { API_BASE } from "@/lib/config";
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -98,7 +99,7 @@ export default function ContactUsPage() {
                 subject: formData.subject.trim(),
                 message: formData.message.trim()
             };
-            const response = await fetch('https://www.inforbit.in/demo/hotel-elegance-backend/api/enquiry', {
+            const response = await fetch(API_BASE + '/enquiry', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

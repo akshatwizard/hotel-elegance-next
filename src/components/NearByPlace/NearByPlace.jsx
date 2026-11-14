@@ -37,7 +37,7 @@ export const NearByPlace = ({ initialNearByPlace = [] }) => {
                         </div>
                     </div>
 
-                    {initialNearByPlace.map((place, index) => (
+                    {(initialNearByPlace ?? []).map((place, index) => (
                         <div
                             key={place.id}
                             className="col-xl-3 col-lg-4 col-sm-6 mb-24">

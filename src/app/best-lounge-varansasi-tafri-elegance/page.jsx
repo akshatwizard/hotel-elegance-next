@@ -1,12 +1,13 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import ImageComponent from './ImageComponent';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 async function getTafriLoungeImages() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/tafri-lounge-image',  
+            API_BASE + '/tafri-lounge-image',  
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }    
         );
 
@@ -62,10 +63,10 @@ export default async function TafriLoungePage() {
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
                                     <img alt="banner-left-shape" className="svg-img left-side"
-                                        src="assets/img/banner/left-shape.svg"
+                                        src="/assets/img/banner/left-shape.svg"
                                     />
                                     Tafri Lounge
-                                    <img alt="banner-right-shape" className="svg-img right-side" src="assets/img/banner/right-shape.svg"
+                                    <img alt="banner-right-shape" className="svg-img right-side" src="/assets/img/banner/right-shape.svg"
                                     />
                                 </p>
                                 <h2>

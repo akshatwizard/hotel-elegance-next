@@ -45,7 +45,7 @@ export function NeatByPlaceListPage({ initialNearByPlace }) {
                                                 alt={place.title}
                                                 className="w-full object-cover"
                                                 onError={(e) => {
-                                                    e.target.src = 'assets/img/placeholder-image.jpg';
+                                                    e.target.src = '/assets/img/placeholder-image.jpg';
                                                 }}
                                             />
                                         </div>
