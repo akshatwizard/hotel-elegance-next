@@ -35,15 +35,16 @@ function validate(kind, body) {
   let clean;
   if (kind === "enquiry") {
     clean = {
-      title: str(body.title, 120),
+      title: str(body.title, 100),
       name: str(body.name, 100),
-      email: str(body.email, 254),
-      subject: str(body.subject, 200),
+      email: str(body.email, 150),
+      subject: str(body.subject, 150),
       message: str(body.message, 2000),
     };
-    if (clean.name.length < 2) errors.name = ["Please enter your name"];
+    if (clean.name.length < 3) errors.name = ["Please enter your name (at least 3 characters)"];
+    if (clean.subject.length < 3) errors.subject = ["Please enter a subject (at least 3 characters)"];
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean.email)) errors.email = ["Please enter a valid email address"];
-    if (clean.message.length < 5) errors.message = ["Please enter your message"];
+    if (clean.message.length < 10) errors.message = ["Please enter your message (at least 10 characters)"];
   } else {
     clean = {
       arrival: str(body.arrival, 10),
