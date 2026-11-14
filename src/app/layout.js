@@ -3,14 +3,23 @@
     import { Header } from "@/components/Header/Header";
     import { ToastDisplay } from '@/components/ui/toast';
     import Script from "next/script";
+    import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/utils/metadata";
 
     export const metadata = {
-      metadataBase: new URL('https://www.theelegance.co.in'),
+      metadataBase: new URL(SITE_URL),
       title: {
-        default: "The Elegance Best Hotel in Varanasi near Railway Station",
-        template: "%s | The Elegance Hotel"
+        default: "Best Hotel in Varanasi near Railway Station | The Elegance",
+        template: "%s | The Elegance",
       },
       description: "The Elegance - Best Boutique Hotel in Varanasi near Banaras Railway Station and BHU. Situated close to BLW, the Hotel is the best place for Stay in Varanasi.",
+      applicationName: SITE_NAME,
+      openGraph: {
+        siteName: SITE_NAME,
+        locale: "en_IN",
+        type: "website",
+        images: [DEFAULT_OG_IMAGE],
+      },
+      twitter: { card: "summary_large_image", images: [DEFAULT_OG_IMAGE.url] },
     };
 
     export default function RootLayout({ children }) {

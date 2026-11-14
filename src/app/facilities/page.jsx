@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/utils/metadata";
 import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import Image from 'next/image';
@@ -21,26 +22,11 @@ async function getFacilitiesData() {
     }
 }
 
-export async function generateMetadata() {
-    try {
-        const data = await getFacilitiesData();       
-        return {
-            title: 'Hotel Facilities at The Elegance Varanasi | Comfort Assured',
-            description: `Explore modern hotel facilities at The Elegance Varanasi. From comfort to convenience, everything is designed for a relaxing stay and events.`,
-            alternates: {
-                canonical: "https://www.theelegance.co.in/facilities",
-            },
-        };
-    } catch (error) {
-        return {
-            title: 'Hotel Facilities at The Elegance Varanasi | Comfort Assured',
-            description: `Explore modern hotel facilities at The Elegance Varanasi. From comfort to convenience, everything is designed for a relaxing stay and events.`,
-            alternates: {
-                canonical: "https://www.theelegance.co.in/facilities",
-            },
-        };
-    }
-}
+export const metadata = buildMetadata({
+    title: 'Hotel Facilities in Varanasi',
+    description: 'Explore modern hotel facilities at The Elegance Varanasi. From comfort to convenience, everything is designed for a relaxing stay and events.',
+    path: '/facilities',
+});
 
 export default async function FacilitiesPage() {
     const facilitiesData = await getFacilitiesData();

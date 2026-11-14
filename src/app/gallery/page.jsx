@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/utils/metadata";
 import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import AlbumGallery from './AlbumGallery';
@@ -22,36 +23,22 @@ async function getAlbumGallery(albumId = null) {
 }
 
 export async function generateMetadata({ searchParams }) {
+    const base = {
+        title: 'Photo Gallery - Rooms, Dining & Events',
+        description: 'Take a visual tour of The Elegance Varanasi. View hotel rooms, restaurant, banquet halls, and event spaces that define comfort and style.',
+        path: '/gallery',
+    };
     try {
         const params = await searchParams;
-        const albumId = params?.album_id || null;
-        const data = await getAlbumGallery(albumId);
-
-        if (!data?.status) {
-            return {
-                title: 'Inside The Elegance Varanasi | Hotel, Rooms & Events',
-                description: 'Take a visual tour of The Elegance Varanasi. View hotel rooms, restaurant, banquet halls, and event spaces that define comfort and style.',
-                alternates: {
-                    canonical: "https://www.theelegance.co.in/gallery",
-                },
-            };
-        }
-
-        return {
-            title: `${data.data.selected_album.title} Gallery - Hotel Elegance`,
-            description: `Browse ${data.data.total_images} images from our ${data.data.selected_album.title} gallery at Hotel Elegance Varanasi`,
-            alternates: {
-                canonical: "https://www.theelegance.co.in/gallery",
-            },
-        };
+        const data = await getAlbumGallery(params?.album_id || null);
+        if (!data?.status || !data?.data?.selected_album) return buildMetadata(base);
+        return buildMetadata({
+            ...base,
+            title: `${data.data.selected_album.title} Gallery`,
+            description: `Browse ${data.data.total_images} images from our ${data.data.selected_album.title} gallery at The Elegance Varanasi.`,
+        });
     } catch (error) {
-        return {
-            title: 'Inside The Elegance Varanasi | Hotel, Rooms & Events',
-            description: 'Take a visual tour of The Elegance Varanasi. View hotel rooms, restaurant, banquet halls, and event spaces that define comfort and style.',
-            alternates: {
-                canonical: "https://www.theelegance.co.in/gallery",
-            },
-        };
+        return buildMetadata(base);
     }
 }
 

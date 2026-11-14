@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/utils/metadata";
 import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import { Suspense } from "react";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
@@ -29,16 +30,12 @@ async function getBlogList() {
         return [];
     }
 }
-export async function generateMetadata() {
-    return {
-        title: "Hotel & Travel Blog in Varanasi | Stay, Food & Nearby Places",
-        description:
-            "Explore our Varanasi travel blog covering hotel stays, nearby attractions, food experiences, travel tips, and insights for a memorable visit.",
-        alternates: {
-            canonical: "https://www.theelegance.co.in/blog",
-        },
-    };
-}
+export const metadata = buildMetadata({
+    title: "Varanasi Travel & Hotel Blog",
+    description:
+        "Explore our Varanasi travel blog covering hotel stays, nearby attractions, food experiences, travel tips, and insights for a memorable visit.",
+    path: "/blog",
+});
 
 export default async function BlogPage() {
     const blogData = await getBlogList();

@@ -1,6 +1,7 @@
 import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import { notFound } from 'next/navigation';
+import { buildMetadata } from '@/utils/metadata';
 import 'aos/dist/aos.css';
 import NearByPlaceDetailsPage from './NearByPlaceDetailsPage';
 
@@ -31,17 +32,12 @@ export async function generateMetadata({ params }) {
     if (!data?.status) {
       return { title: "Place Not Found | The Elegance Hotel", robots: { index: false } };
     }
-    return {
-      title:
-        data.data.meta_title ||
-        `${data.data.title} - Hotel Elegance`,
-      description:
-        data.data.meta_description ||
-        data.data.short_desc,
-      alternates: {
-        canonical: `https://www.theelegance.co.in/near-by-place/${slug}`,
-      },
-    };
+    return buildMetadata({
+      title: data.data.meta_title || data.data.title,
+      description: data.data.meta_description || data.data.short_desc,
+      path: `/near-by-place/${slug}`,
+      image: data.data.image_url || undefined,
+    });
 
   } catch (error) {
     return {

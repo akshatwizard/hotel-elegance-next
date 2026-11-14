@@ -1,13 +1,11 @@
-
 import RestaurantPage from "./RestaurantPage";
-export const metadata = {
-  title: 'Best Budget Restaurant in Varanasi for Family Dining',
+import { buildMetadata } from "@/utils/metadata";
+export const metadata = buildMetadata({
+  title: "Budget Family Restaurant in Varanasi",
   description:
-    'Searching for a budget restaurant in Varanasi? Enjoy tasty food, warm ambience, and great service at The Elegance—perfect for families & friends.',
-    alternates: {
-        canonical: `https://www.theelegance.co.in/budget-restaurant-varanasi`,
-    },
-};
+    "Searching for a budget restaurant in Varanasi? Enjoy tasty food, warm ambience, and great service at The Elegance—perfect for families & friends.",
+  path: "/budget-restaurant-varanasi",
+});
 export default function Page() {
   return <RestaurantPage />;
 }

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, notFound } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { imageTosvg } from '@/utils/imageToSvg';
@@ -56,7 +56,9 @@ export default function RoomDetailPage() {
     const params = useParams();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(0);
-    const [room, setRoom] = useState(null);
+    // Resolve synchronously so the room content is in the server-rendered HTML
+    // (crawlers see it); the route's page.js already 404s unknown slugs.
+    const room = getRoomBySlug(params.slug);
     const [activeTab, setActiveTab] = useState('overview');
     const [showLightbox, setShowLightbox] = useState(false);
     const mainCarouselRef = useRef(null);
@@ -64,12 +66,6 @@ export default function RoomDetailPage() {
     const autoplayPlugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
 
     useEffect(() => {
-        const foundRoom = getRoomBySlug(params.slug);
-        if (!foundRoom) {
-            notFound();
-        }
-        setRoom(foundRoom);
-
         AOS.init({
             duration: 1000,
             once: true,

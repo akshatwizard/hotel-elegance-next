@@ -1,4 +1,7 @@
 import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
+import JsonLd from "@/components/JsonLd";
+import { blogPostSchema } from "@/lib/seo";
+import { buildMetadata } from "@/utils/metadata";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import BlogDetailsPage from "./BlogDetailsPage";
@@ -23,19 +26,13 @@ export async function generateMetadata({ params }) {
         return { title: "Blog Not Found | The Elegance Hotel", robots: { index: false } };
     }
     const blog = res.data;
-    return {
+    return buildMetadata({
         title: blog.meta_title || blog.title,
         description: blog.meta_description || blog.short_desc,
-        alternates: {
-            canonical: `https://www.theelegance.co.in/blog/${slug}`,
-        },
-        openGraph: {
-            title: blog.title,
-            description: blog.short_desc,
-            images: blog.featured_image ? [blog.featured_image] : [],
-            type: "article",
-        },
-    };
+        path: `/blog/${slug}`,
+        image: blog.featured_image || undefined,
+        type: "article",
+    });
 }
 export default async function Page({ params }) {
     const { slug } = await params;
@@ -50,6 +47,7 @@ export default async function Page({ params }) {
                 subtitle=""
             />
 
+            <JsonLd data={blogPostSchema(blogRes.data, slug)} />
             <BlogDetailsPage blog={blogRes.data} />
         </>
     );

@@ -1,5 +1,7 @@
 import Banner from "@/components/Banner/Banner";
-import { pageMeta } from "@/utils/metadata";
+import JsonLd from "@/components/JsonLd";
+import { hotelSchema } from "@/lib/seo";
+import { buildMetadata } from "@/utils/metadata";
 import { HomeAboutUs } from "@/components/HomeAboutUs/HomeAboutUs";
 import { OurBestServices } from "@/components/OurBestServices/OurBestServices";
 import { AccommodationDining } from "@/components/AccommodationDining/AccommodationDining";
@@ -17,13 +19,19 @@ import FlyersWrapper from "@/components/Flyers/FlyersWrapper";
 import TestimonialsWrapper from "@/components/Testimonials/TestimonialsWrapper";
 import HomeBlogWrapper from "@/components/HomeBlog/HomeBlogWrapper";
 import OtherHotelsSection from "@/components/OtherHotelsSection/OtherHotelsSection";
-export const metadata = pageMeta(
-  "The Elegance Best Hotel in Varanasi near Railway Station", 
-  "The Elegance - Best Boutique Hotel in Varanasi near Banaras Railway Station and BHU. Situated close to BLW, the Hotel is the best place for Stay in Varanasi."
-);
+export const metadata = {
+  ...buildMetadata({
+    title: "Best Hotel in Varanasi near Railway Station | The Elegance",
+    description:
+      "The Elegance - Best Boutique Hotel in Varanasi near Banaras Railway Station and BHU. Situated close to BLW, the Hotel is the best place for Stay in Varanasi.",
+    path: "/",
+  }),
+  title: { absolute: "Best Hotel in Varanasi near Railway Station | The Elegance" },
+};
 export default function Home() {
   return (
     <>
+      <JsonLd data={hotelSchema()} />
       <Suspense fallback="loading">
         <BannerWrapper /> 
       </Suspense> 

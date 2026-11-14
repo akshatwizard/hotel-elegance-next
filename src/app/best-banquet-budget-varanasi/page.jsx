@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/utils/metadata";
 import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import OnexBanquet from './OnexBanquet'; 
@@ -41,28 +42,11 @@ async function getSapphireBanquetData() {
         return null;
     }
 }
-export async function generateMetadata() {
-  try {
-    const onexData = await getOnexBanquetData();
-    const title ="Best Budget Banquet Hall in Varanasi | Events & Celebrations";
-    const description = "Find the best budget banquet hall in Varanasi for weddings, parties, and corporate events with spacious halls, great service, and elegant décor.";
-    return {
-      title: title,
-      description: description,
-      alternates: {
-        canonical: "https://www.theelegance.co.in/best-banquet-budget-varanasi",
-      },
-    };
-  } catch (error) {
-    return {
-      title: "Banquets - Hotel Elegance",
-      description: "Premium banquet halls for your special celebrations",
-      alternates: {
-        canonical: "https://www.theelegance.co.in/best-banquet-budget-varanasi",
-      },
-    };
-  }
-}
+export const metadata = buildMetadata({
+    title: 'Budget Banquet Hall in Varanasi',
+    description: 'Find the best budget banquet hall in Varanasi for weddings, parties, and corporate events with spacious halls, great service, and elegant décor.',
+    path: '/best-banquet-budget-varanasi',
+});
 
 
 export default async function BanquetsPage() {

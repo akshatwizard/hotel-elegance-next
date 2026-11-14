@@ -1,4 +1,7 @@
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { roomSchema } from "@/lib/seo";
+import { buildMetadata } from "@/utils/metadata";
 import RoomDetailPage from "./RoomsDeails";
 import { getRoomBySlug, roomsData } from "@/data/roomsData";
 
@@ -14,18 +17,23 @@ export async function generateMetadata({ params }) {
   if (!room) {
     return { title: "Room not found | The Elegance Hotel" };
   }
-  return {
+  return buildMetadata({
     title: room.meta_title,
     description:
       room.meta_desc || `Book ${room.title} at The Elegance Hotel, Varanasi`,
-    alternates: {
-      canonical: `https://www.theelegance.co.in/hotel-rooms-in-varanasi/${slug}`,
-    },
-  };
+    path: `/hotel-rooms-in-varanasi/${slug}`,
+    image: room.image,
+  });
 }
 
 export default async function Page({ params }) {
   const { slug } = await params;
-  if (!getRoomBySlug(slug)) notFound();
-  return <RoomDetailPage />;
+  const room = getRoomBySlug(slug);
+  if (!room) notFound();
+  return (
+    <>
+      <JsonLd data={roomSchema(room, slug)} />
+      <RoomDetailPage />
+    </>
+  );
 }
