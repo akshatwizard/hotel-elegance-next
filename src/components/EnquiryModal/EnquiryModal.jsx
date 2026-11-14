@@ -1,5 +1,6 @@
 "use client";
-import { API_BASE } from "@/lib/config";
+import { postEnquiry } from "@/lib/enquiryClient";
+import { useFormGuard } from "@/lib/useFormGuard";
 import React, { useState, useEffect } from 'react';
 
 const EnquiryModal = ({ isOpen, onClose, title = "Contact Us" }) => {
@@ -11,6 +12,7 @@ const EnquiryModal = ({ isOpen, onClose, title = "Contact Us" }) => {
         message: ''
     });
 
+    const { field: guardField, guard } = useFormGuard(isOpen);
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
@@ -94,14 +96,7 @@ const EnquiryModal = ({ isOpen, onClose, title = "Contact Us" }) => {
                 subject: formData.subject.trim(),
                 message: formData.message.trim()
             };
-            const response = await fetch(API_BASE + '/enquiry', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify(enquiryData)
-            });
+            const response = await postEnquiry('enquiry', enquiryData, guard());
 
             const result = await response.json();
             if (response.ok && result.status === true) {
@@ -215,6 +210,7 @@ const EnquiryModal = ({ isOpen, onClose, title = "Contact Us" }) => {
                     {/* Form (only show if not in success state) */}
                     {submitStatus !== 'success' && (
                         <form onSubmit={handleSubmit} className="space-y-4">
+                            {guardField}
                             {title && (
                                 <div className="d-none">
                                     <label htmlFor="title" className="block text-white mb-1 text-sm font-medium">

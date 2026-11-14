@@ -110,7 +110,7 @@ export const Header = () => {
                                 <li>Follow Us :</li>
                                 <li>
                                     <a
-                                        target="_blank"
+                                        target="_blank" rel="noopener noreferrer"
                                         href="https://www.facebook.com/theelegancehotel/"
                                     >
                                         <i className="ri-facebook-line" />
@@ -118,7 +118,7 @@ export const Header = () => {
                                 </li>
                                 <li>
                                     <a
-                                        target="_blank"
+                                        target="_blank" rel="noopener noreferrer"
                                         href="https://www.instagram.com/theelegancehotel/"
                                     >
                                         <i className="ri-instagram-line" />
@@ -202,7 +202,7 @@ export const Header = () => {
                                         </a> */}
                                         <a
                                             className="rx-btn-one rounded cursor-pointer"
-                                            href="https://bookingengine.maximojo.com/?hid=IN-4db8055e-366f-42ed-aa53-7b7673c16629" target="_blank"
+                                            href="https://bookingengine.maximojo.com/?hid=IN-4db8055e-366f-42ed-aa53-7b7673c16629" target="_blank" rel="noopener noreferrer"
                                         >
                                             Book Now
                                         </a>
@@ -293,7 +293,7 @@ export const Header = () => {
                                 <ul className="mb-0">
                                     <li className="list-inline-item">
                                         <a
-                                            target="_blank"
+                                            target="_blank" rel="noopener noreferrer"
                                             href="https://www.facebook.com/theelegancehotel/"
                                         >
                                             <i className="ri-facebook-fill" />
@@ -301,7 +301,7 @@ export const Header = () => {
                                     </li>
                                     <li className="list-inline-item">
                                         <a
-                                            target="_blank"
+                                            target="_blank" rel="noopener noreferrer"
                                             href="https://www.instagram.com/theelegancehotel/"
                                         >
                                             <i className="ri-instagram-line" />

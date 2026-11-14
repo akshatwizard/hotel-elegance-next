@@ -28,7 +28,7 @@ const Footer = () => {
                                         <div className="rx-footer-last-logo">
                                             <div className="rx-inner-footer-logo">
                                                 <a
-                                                    target="_blank"
+                                                    target="_blank" rel="noopener noreferrer"
                                                     href="https://www.facebook.com/theelegancehotel/"
                                                 >
                                                     <i className="ri-facebook-line" />
@@ -36,7 +36,7 @@ const Footer = () => {
                                             </div>
                                             <div className="rx-inner-footer-logo">
                                                 <a
-                                                    target="_blank"
+                                                    target="_blank" rel="noopener noreferrer"
                                                     href="https://www.instagram.com/theelegancehotel/"
                                                 >
                                                     <i className="ri-instagram-line" />
@@ -123,7 +123,7 @@ const Footer = () => {
                                         <p>
                                             © 2025 <a href="#">www.theelegance.co.in</a>, All Rights
                                             Reserved. | Website Designed &amp; Maintained by{" "}
-                                            <a href="https://wizards.co.in/" target="_blank">
+                                            <a href="https://wizards.co.in/" target="_blank" rel="noopener noreferrer">
                                                 Wizards Next LLP.
                                             </a>
                                         </p>

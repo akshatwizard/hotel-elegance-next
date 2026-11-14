@@ -21,7 +21,7 @@ export const Flyers = ({ initialFlyers = [] }) => {
                     >
                         <div className="other-hotel">
                             <div className="other-hotels-container">
-                                <a target="_blank" href={flyer.link || "https://www.instagram.com/theelegancehotel/"}>
+                                <a target="_blank" rel="noopener noreferrer" href={flyer.link || "https://www.instagram.com/theelegancehotel/"}>
                                     <img src={flyer.image_url} alt={`Offer flyer ${index + 1} from The Elegance Hotel, Varanasi`}/>
                                 </a>
                             </div>

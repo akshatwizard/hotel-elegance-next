@@ -101,7 +101,7 @@ export const roomsData = {
       meta_title: "Standard Hotel Room in Varanasi",
       meta_desc: "Stay in well-maintained standard hotel rooms in Varanasi offering comfort, essential amenities, and a convenient location for a pleasant stay.",
       subtitle: "No. of Standard Rooms : 19",
-      price: 4000,
+      price: 5000,
       image: "/assets/dev-img/room/standard-room.jpg",
       gallery: [
         "/assets/dev-img/room/standard-room.jpg",

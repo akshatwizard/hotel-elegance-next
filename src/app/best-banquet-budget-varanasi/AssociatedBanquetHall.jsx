@@ -23,7 +23,7 @@ const AssociatedBanquetHall = () => {
                             </p>
                             <a
                                 href="https://www.varanasibanquet.com/"
-                                target="_blank"
+                                target="_blank" rel="noopener noreferrer"
                                 className="inline-flex items-center gap-1.5 text-sm font-medium text-white border border-white/40 rounded-lg px-4 py-2 hover:bg-white/10 transition-colors w-fit mt-1"
                             >
                                 Explore Banquet <i className="icon-5" />

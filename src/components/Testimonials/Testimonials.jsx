@@ -63,7 +63,7 @@ export const Testimonials = ({ initialTestimonials = [] }) => {
                         <div className="rx-banner text-center rx-banner-effects">
                             <p className="testimonials-flex mb-2">
                                 <LeftShapeSVG/>
-                                <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html" target="_blank" aria-label="Tripadvisor Logo">
+                                <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html" target="_blank" rel="noopener noreferrer" aria-label="Tripadvisor Logo">
                                     <img src="/assets/dev-img/Tripadvisor-Logo.png" alt="Tripadvisor Logo" />
                                 </a>
                                 <RightShapeSVG/>
@@ -140,7 +140,7 @@ export const Testimonials = ({ initialTestimonials = [] }) => {
                         className="col-md-12 mb-3 mt-2 text-center"
                     >
                         <div className="text-center">
-                            <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html#REVIEWS" target="_blank" className="btn rx-btn-two rounded">
+                            <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html#REVIEWS" target="_blank" rel="noopener noreferrer" className="btn rx-btn-two rounded">
                                 View More Reviews On Trip Advisor
                             </a>
                         </div>

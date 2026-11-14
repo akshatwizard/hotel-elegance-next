@@ -39,7 +39,6 @@
             {/* <link rel="stylesheet" href="assets/css/vendor/aos.css" /> */}
             {/* <link rel="stylesheet" href="assets/css/vendor/animate.min.css" /> */}
             {/* <link rel="stylesheet" href="assets/css/vendor/jquery.fancybox.min.css"/> */}
-            <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css?v=7.0.0"/>
             {/* <link rel="stylesheet" href="assets/css/vendor/slick.min.css" />
             <link rel="stylesheet" href="assets/css/vendor/owl.carousel.min.css" />
             <link rel="stylesheet" href="assets/css/vendor/swiper-bundle.min.css" /> */}
@@ -53,9 +52,7 @@
               <ToastDisplay />
               <Footer />
             </div>
-            <script src="/assets/js/vendor/bootstrap.bundle.min.js"></script>
-            <script src="/assets/js/vendor/jquery-3.7.1.min.js"></script>
-            <script src="/assets/js/vendor/jquery-ui.min.js"></script>
+            <script src="/assets/js/vendor/bootstrap.bundle.min.js" defer></script>
             {/* <script src="assets/js/vendor/aos.js"></script>
             <script src="assets/js/vendor/smoothscroll.min.js"></script>
             <script src="assets/js/vendor/jquery.fancybox.min.js"></script>

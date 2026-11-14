@@ -44,7 +44,7 @@ export default function tariffPage() {
         {
             title: "STANDARD ROOM",
             image: "/assets/dev-img/room/standard-room.jpg",
-            doublePrice: "Rs. 4000",
+            doublePrice: "Rs. 5000",
             features: ["Comfort Plus", "Garden View", "Coffee Maker"],
             highlight: null
         },
