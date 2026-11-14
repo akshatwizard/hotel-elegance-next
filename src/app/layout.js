@@ -3,6 +3,7 @@
     import { Header } from "@/components/Header/Header";
     import { ToastDisplay } from '@/components/ui/toast';
     import Script from "next/script";
+import ConversionTracker from "@/components/Analytics/ConversionTracker";
     import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/utils/metadata";
 
     export const metadata = {
@@ -60,6 +61,7 @@
             <script src="assets/js/vendor/owl.carousel.min.js"></script>
             <script src="assets/js/vendor/swiper-bundle.min.js"></script>
             <script src="assets/js/main.js"></script> */}
+            <ConversionTracker />
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-ZNW7VCL3YL"
               strategy="afterInteractive"
