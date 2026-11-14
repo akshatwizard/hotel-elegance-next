@@ -6,6 +6,7 @@ import { breadcrumbSchema } from '@/lib/seo';
 
 export default function Breadcrumb({
     title,
+    heading,
     backgroundImage = "/assets/img/banner/banner.jpg",
     mobileBackgroundImage = "/assets/img/banner/banner.jpg",
     subtitle = ""
@@ -39,7 +40,7 @@ export default function Breadcrumb({
                             <div className="row">
                                 <div className="col-12">
                                     <div className="rx-banner-contact">
-                                        <h1>{title}</h1>
+                                        <h1>{heading || title}</h1>
                                         {subtitle && <p className="mt-2">{subtitle}</p>}
                                     </div>
                                 </div>

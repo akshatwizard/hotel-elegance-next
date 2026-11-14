@@ -47,7 +47,7 @@ export const PositionedUnique = () => {
                         <div className="row">
                             <div className="col-lg-8 col-12">
                                 <div className="inner-img">
-                                    <img src="/assets/dev-img/babatpur-airport.jpg" alt="menu-1" />
+                                    <img src="/assets/dev-img/babatpur-airport.jpg" alt="Babatpur (Varanasi) airport, a short drive from The Elegance Hotel" />
                                 </div>
                             </div>
                             <div className="col-lg-4 col-12">

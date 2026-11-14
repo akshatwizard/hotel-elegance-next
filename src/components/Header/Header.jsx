@@ -140,7 +140,7 @@ export const Header = () => {
                         <div className="col-12">
                             <div className="rx-inner-menu-desk">
                                 <Link href="/" className="rx-header-btn">
-                                    <img src="/assets/dev-img/logo/logo-bg.jpg" alt="logo" />
+                                    <img src="/assets/dev-img/logo/logo-bg.jpg" alt="The Elegance Hotel Varanasi logo" />
                                 </Link>
                                 <button
                                     className="navbar-toggler shadow-none rx-toggle-menu"

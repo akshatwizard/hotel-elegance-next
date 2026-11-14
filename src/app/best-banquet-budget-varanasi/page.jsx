@@ -57,7 +57,7 @@ export default async function BanquetsPage() {
     return (
         <>
             <Breadcrumb 
-                title="Banquets" 
+                title="Banquets" heading="Budget Banquet Halls in Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/Banquet.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Banquets.jpg"
                 subtitle=""

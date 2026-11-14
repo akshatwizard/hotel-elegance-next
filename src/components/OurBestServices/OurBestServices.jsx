@@ -73,13 +73,13 @@ export const OurBestServices = () => {
                             <p>
                                 <img
                                     src="/assets/img/banner/left-shape.svg"
-                                    alt="banner-left-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img left-side"
                                 />
                                 Facilities
                                 <img
                                     src="/assets/img/banner/right-shape.svg"
-                                    alt="banner-right-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img right-side"
                                 />
                             </p>

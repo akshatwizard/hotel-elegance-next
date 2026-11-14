@@ -121,7 +121,7 @@ export default function RoomDetailPage() {
     return (
         <>
             <Breadcrumb
-                title={`${room.title}`}
+                title={`${room.title}`} heading={`${room.title} at The Elegance, Varanasi`}
                 backgroundImage={room.image}
                 subtitle=""
             />
@@ -261,7 +261,7 @@ export default function RoomDetailPage() {
                                                         <div className="aspect-square">
                                                             <img
                                                                 src={img}
-                                                                alt={`Thumbnail ${index + 1}`}
+                                                                alt={`${room.title} thumbnail ${index + 1}`}
                                                                 className="w-full h-full object-cover"
                                                             />
                                                         </div>
@@ -477,7 +477,7 @@ export default function RoomDetailPage() {
                     <div className="max-w-6xl w-full">
                         <img
                             src={room.gallery[selectedImage]}
-                            alt="Enlarged view"
+                            alt={`${room.title} enlarged view`}
                             className="w-full h-[70vh] object-contain rounded-lg"
                         />
                         <div className="text-center mt-4 text-white">

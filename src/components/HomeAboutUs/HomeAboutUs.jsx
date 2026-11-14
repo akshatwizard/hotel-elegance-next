@@ -13,7 +13,7 @@ export const HomeAboutUs = () => {
             <div className="rx-about-img">
               <img
                 src="/assets/dev-img/about-us.png"
-                alt="about"
+                alt="The Elegance Hotel facade near Banaras Railway Station, Varanasi, with the Kashi ghats skyline"
                 className="rx-white-img"
               />
               <div className="rx-rounded-circle">

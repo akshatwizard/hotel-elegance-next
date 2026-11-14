@@ -29,13 +29,13 @@ function NearByPlaceSkeleton() {
                             <p>
                                 <img
                                     src="/assets/img/banner/left-shape.svg"
-                                    alt="banner-left-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img left-side"
                                 />
                                 Nearby Places
                                 <img
                                     src="/assets/img/banner/right-shape.svg"
-                                    alt="banner-right-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img right-side"
                                 />
                             </p>

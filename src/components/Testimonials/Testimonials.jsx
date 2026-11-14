@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { LeftShapeSVG, RightShapeSVG } from '../SVG/BannerShapes';
@@ -12,10 +12,10 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 export const Testimonials = ({ initialTestimonials = [] }) => {
-    const [testimonials, setTestimonials] = useState([]);
-
-    useEffect(() => {
-        if (initialTestimonials && initialTestimonials.length > 0) {
+    // Derived synchronously (not in an effect) so reviews are in the server HTML.
+    const testimonials = useMemo(() => {
+        if (!initialTestimonials || initialTestimonials.length === 0) return [];
+        {
             const transformedTestimonials = initialTestimonials.map((item, index) => ({
                 id: item.id || index + 1,
                 hotelName: item.title || "Guest Review",
@@ -31,7 +31,7 @@ export const Testimonials = ({ initialTestimonials = [] }) => {
                     sleepQuality: item.ratings?.sleepQuality || 5.0
                 }
             }));
-            setTestimonials(transformedTestimonials);
+            return transformedTestimonials;
         }
     }, [initialTestimonials]);    
 

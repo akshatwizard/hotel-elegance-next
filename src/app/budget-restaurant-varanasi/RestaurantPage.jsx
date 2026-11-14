@@ -70,7 +70,7 @@ export default function RestaurantPage() {
         <>
             {/* Breadcrumb */}
             <Breadcrumb
-                title="Restaurant"
+                title="Restaurant" heading="Budget Family Restaurant in Varanasi"
                 backgroundImage="/assets/dev-img/bread-banner/best-restaurant-varanasi-elegance.jpeg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/resturant.jpg"
                 subtitle=""
@@ -84,13 +84,13 @@ export default function RestaurantPage() {
                                 <p>
                                     <img
                                         src="/assets/img/banner/left-shape.svg"
-                                        alt="banner-left-shape"
+                                        alt="" aria-hidden="true"
                                         className="svg-img left-side"
                                     />
                                     Urban Chaupal
                                     <img
                                         src="/assets/img/banner/right-shape.svg"
-                                        alt="banner-right-shape"
+                                        alt="" aria-hidden="true"
                                         className="svg-img right-side"
                                     />
                                 </p>
@@ -153,22 +153,22 @@ export default function RestaurantPage() {
                                             <div className="row mb-minus-24 rx-side-menu-image">
                                                 <div className="col-lg-6 col-12 mb-24">
                                                     <div className="inner-img radius-one">
-                                                        <img src="/assets/dev-img/restaurant/Unmatched-Pampering-at-Elegance.jpg" alt="menu-1" />
+                                                        <img src="/assets/dev-img/restaurant/Unmatched-Pampering-at-Elegance.jpg" alt="Urban Chaupal Restaurant logo" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-12 mb-24 d-none-991">
                                                     <div className="inner-img radius-two">
-                                                        <img src="/assets/dev-img/restaurant/A-Haven-for-Indian-Cuisine-Lovers.jpg" alt="menu-2" />
+                                                        <img src="/assets/dev-img/restaurant/A-Haven-for-Indian-Cuisine-Lovers.jpg" alt="Dining hall at Urban Chaupal Restaurant, The Elegance Hotel Varanasi" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-12 mb-24 d-none-991">
                                                     <div className="inner-img radius-three">
-                                                        <img src="/assets/dev-img/restaurant/Casual-Elegance-Timeless-Taste.jpg" alt="menu-3" />
+                                                        <img src="/assets/dev-img/restaurant/Casual-Elegance-Timeless-Taste.jpg" alt="Cosy booth seating at Urban Chaupal Restaurant" />
                                                     </div>
                                                 </div>
                                                 <div className="col-lg-6 col-12 mb-24 d-none-991">
                                                     <div className="inner-img radius-four">
-                                                        <img src="/assets/dev-img/restaurant/Capture-Moments-of-Delight.jpg" alt="menu-4" />
+                                                        <img src="/assets/dev-img/restaurant/Capture-Moments-of-Delight.jpg" alt="Urban Chaupal Restaurant signboard" />
                                                     </div>
                                                 </div>
                                             </div>

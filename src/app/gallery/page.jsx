@@ -50,7 +50,7 @@ export default async function GalleryPage({ searchParams }) {
     return (
         <>
             <Breadcrumb
-                title="Gallery"
+                title="Gallery" heading="Photo Gallery of The Elegance, Varanasi"
                 backgroundImage="/assets/dev-img/bread-banner/elegance-best-hotel-varanasi.jpeg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Gallery.jpg"
                 subtitle=""

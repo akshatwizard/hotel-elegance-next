@@ -55,7 +55,7 @@ export default function tariffPage() {
         <>
             {/* Breadcrumb */}
             <Breadcrumb 
-                title="Tariff" 
+                title="Tariff" heading="Hotel Room Tariff in Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/best=room-rates-varanasi.jpeg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Tariff.jpg"
                 subtitle=""
@@ -68,13 +68,13 @@ export default function tariffPage() {
                                 <p>
                                     <img
                                         src="/assets/img/banner/left-shape.svg"
-                                        alt="banner-left-shape"
+                                        alt="" aria-hidden="true"
                                         className="svg-img left-side"
                                     />
                                     Room Tariffs
                                     <img
                                         src="/assets/img/banner/right-shape.svg"
-                                        alt="banner-right-shape"
+                                        alt="" aria-hidden="true"
                                         className="svg-img right-side"
                                     />
                                 </p>

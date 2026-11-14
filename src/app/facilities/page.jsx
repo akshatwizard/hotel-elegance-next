@@ -35,7 +35,7 @@ export default async function FacilitiesPage() {
     return (
         <>
             <Breadcrumb 
-                title="Facilities" 
+                title="Facilities" heading="Hotel Facilities at The Elegance, Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/Facilities.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Facilities.jpg"
                 subtitle=""

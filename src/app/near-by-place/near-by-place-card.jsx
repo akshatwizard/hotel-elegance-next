@@ -24,7 +24,7 @@ export function NeatByPlaceListPage({ initialNearByPlace }) {
         <>
             {/* Breadcrumb */}
             <Breadcrumb
-                title="Near By Places"
+                title="Near By Places" heading="Places to Visit Near Our Varanasi Hotel"
                 backgroundImage="/assets/dev-img/bread-banner/Rooms.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Rooms.jpg"
                 subtitle=""

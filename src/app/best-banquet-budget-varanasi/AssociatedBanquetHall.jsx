@@ -32,7 +32,7 @@ const AssociatedBanquetHall = () => {
                         <div className="relative h-64 md:h-auto order-1 lg:order-2">
                             <img
                                 src="/assets/dev-img/Shubhkamana-Banquet-Hall.png"
-                                alt="Shubhkamna Banquet"
+                                alt="Shubhkamna Banquet hall, Varanasi"
                                 className="w-full h-full object-cover"
                             />
                         </div>

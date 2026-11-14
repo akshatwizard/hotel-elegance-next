@@ -33,7 +33,7 @@ export default async function TafriLoungePage() {
     return (
         <>
             <Breadcrumb 
-                title="Tafri Lounge by Elegance" 
+                title="Tafri Lounge by Elegance" heading="Tafri Lounge - Best Lounge in Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/Taffri.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Tafri-Lounge.jpg"
                 subtitle=""
@@ -48,11 +48,11 @@ export default async function TafriLoungePage() {
                         >
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
-                                    <img alt="banner-left-shape" className="svg-img left-side"
+                                    <img alt="" aria-hidden="true" className="svg-img left-side"
                                         src="/assets/img/banner/left-shape.svg"
                                     />
                                     Tafri Lounge
-                                    <img alt="banner-right-shape" className="svg-img right-side" src="/assets/img/banner/right-shape.svg"
+                                    <img alt="" aria-hidden="true" className="svg-img right-side" src="/assets/img/banner/right-shape.svg"
                                     />
                                 </p>
                                 <h2>

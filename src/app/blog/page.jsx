@@ -43,7 +43,7 @@ export default async function BlogPage() {
     return (
         <>
             <Breadcrumb
-                title="Blog"
+                title="Blog" heading="Varanasi Travel & Hotel Blog"
                 backgroundImage="/assets/dev-img/bread-banner/Tariff.jpg"
                 mobileBackgroundImage=""
                 subtitle=""

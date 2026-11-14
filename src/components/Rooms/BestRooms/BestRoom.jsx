@@ -27,13 +27,13 @@ export const BestRoom = () => {
                             <p>
                                 <img
                                     src="/assets/img/banner/left-shape.svg"
-                                    alt="banner-left-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img left-side"
                                 />
                                 Luxury Suites
                                 <img
                                     src="/assets/img/banner/right-shape.svg"
-                                    alt="banner-right-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img right-side"
                                 />
                             </p>
@@ -48,7 +48,7 @@ export const BestRoom = () => {
                     >
                         <div className="rx-rooms-box-2">
                             <div className="rx-rooms-img">
-                                <img src="/assets/dev-img/room/suite-room.jpg" alt="room-4" />
+                                <img src="/assets/dev-img/room/suite-room.jpg" alt="Suite room at The Elegance Hotel, Varanasi" />
                                 <div className="inner-back-side">
                                     <div className="sub-title">
                                         <h5>Suite Room</h5>
@@ -81,7 +81,7 @@ export const BestRoom = () => {
                     <div className="col-lg-4 col-md-6 col-sm-12 col-12 mb-24">
                         <div className="rx-rooms-box-2">
                             <div className="rx-rooms-img">
-                                <img src="/assets/dev-img/room/premium-room.jpg" alt="room-5" />
+                                <img src="/assets/dev-img/room/premium-room.jpg" alt="Premium room at The Elegance Hotel, Varanasi" />
                                 <div className="inner-back-side">
                                     <div className="sub-title">
                                         <h5>Premium Rooms</h5>
@@ -114,7 +114,7 @@ export const BestRoom = () => {
                     <div className="col-lg-4 col-md-6 col-sm-12 col-12 mb-24">
                         <div className="rx-rooms-box-2">
                             <div className="rx-rooms-img">
-                                <img src="/assets/dev-img/room/standard-room.jpg" alt="room-6" />
+                                <img src="/assets/dev-img/room/standard-room.jpg" alt="Standard room at The Elegance Hotel, Varanasi" />
                                 <div className="inner-back-side">
                                     <div className="sub-title">
                                         <h5>Standard Rooms</h5>

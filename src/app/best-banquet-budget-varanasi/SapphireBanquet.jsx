@@ -96,13 +96,13 @@ const SapphireBanquet = ({ sapphireData }) => {
                                 <p>
                                     <img
                                         src="/assets/img/banner/left-shape.svg"
-                                        alt="banner-left-shape"
+                                        alt="" aria-hidden="true"
                                         className="svg-img left-side"
                                     />
                                     Sapphire Banquet
                                     <img
                                         src="/assets/img/banner/right-shape.svg"
-                                        alt="banner-right-shape"
+                                        alt="" aria-hidden="true"
                                         className="svg-img right-side"
                                     />
                                 </p>
@@ -135,13 +135,13 @@ const SapphireBanquet = ({ sapphireData }) => {
                             <p>
                                 <img
                                     src="/assets/img/banner/left-shape.svg"
-                                    alt="banner-left-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img left-side"
                                 />
                                 Sapphire Banquet
                                 <img
                                     src="/assets/img/banner/right-shape.svg"
-                                    alt="banner-right-shape"
+                                    alt="" aria-hidden="true"
                                     className="svg-img right-side"
                                 />
                             </p>

@@ -75,7 +75,7 @@ export default function RoomsListPage() {
     return (
         <>
             <Breadcrumb
-                title={roomsData.pageContent.breadcrumbTitle}
+                title={roomsData.pageContent.breadcrumbTitle} heading="Luxury Hotel Rooms in Varanasi"
                 backgroundImage="/assets/dev-img/bread-banner/elegance-rooms-varanasi.jpeg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Rooms.jpg"
                 subtitle=""
@@ -90,13 +90,13 @@ export default function RoomsListPage() {
                                     <p>
                                         <img
                                             src="/assets/img/banner/left-shape.svg"
-                                            alt="banner-left-shape"
+                                            alt="" aria-hidden="true"
                                             className="svg-img left-side"
                                         />
                                          {roomsData.pageContent.seoTitle}
                                         <img
                                             src="/assets/img/banner/right-shape.svg"
-                                            alt="banner-right-shape"
+                                            alt="" aria-hidden="true"
                                             className="svg-img right-side"
                                         />
                                     </p>

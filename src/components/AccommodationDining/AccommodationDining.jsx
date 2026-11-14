@@ -74,13 +74,13 @@ export const AccommodationDining = () => {
                                     <p>
                                         <img
                                             src="/assets/img/banner/left-shape.svg"
-                                            alt="banner-left-shape"
+                                            alt="" aria-hidden="true"
                                             className="svg-img left-side"
                                         />
                                         The Elegance
                                         <img
                                             src="/assets/img/banner/right-shape.svg"
-                                            alt="banner-right-shape"
+                                            alt="" aria-hidden="true"
                                             className="svg-img right-side"
                                         />
                                     </p>

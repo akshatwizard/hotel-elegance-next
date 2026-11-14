@@ -1,4 +1,5 @@
 "use client";
+import { SITE_INFO } from "@/lib/siteInfo";
 import { API_BASE } from "@/lib/config";
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
@@ -152,7 +153,7 @@ export default function ContactUsPage() {
         <>
             {/* Breadcrumb */}
             <Breadcrumb 
-                title="Contact Us" 
+                title="Contact Us" heading="Contact The Elegance Hotel, Varanasi" 
                 backgroundImage="/assets/img/banner/banner.jpg"
                 subtitle=""
             />
@@ -173,9 +174,9 @@ export default function ContactUsPage() {
                                 </h3>
                                 <address className="text-gray-600 not-italic space-y-1">
                                     <p className="leading-relaxed">
-                                        N 10/60, Kakarmatta, DLW Road,<br />
-                                        Near Banaras Railway Station,<br />
-                                        Varanasi, Uttar Pradesh - 221004
+                                        {SITE_INFO.streetLine1}<br />
+                                        {SITE_INFO.streetLine2}<br />
+                                        {SITE_INFO.city}, {SITE_INFO.region} - {SITE_INFO.postalCode}
                                     </p>
                                 </address>
                                 <div className="mt-4">

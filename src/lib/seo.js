@@ -1,3 +1,4 @@
+import { SITE_INFO } from "@/lib/siteInfo";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from "@/utils/metadata";
 
 // Names shown in breadcrumbs for top-level sections.
@@ -29,15 +30,15 @@ export function hotelSchema() {
     image: [`${SITE_URL}${DEFAULT_OG_IMAGE.url}`],
     description:
       "Boutique hotel in Varanasi near Banaras Railway Station and BHU, close to BLW, with rooms, a restaurant, banquet halls and a lounge.",
-    telephone: "+918810719088",
-    email: "theelegance.kashi@gmail.com",
+    telephone: SITE_INFO.primaryPhone,
+    email: SITE_INFO.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "N 10/60, Kakarmatta, DLW Road, near Banaras Railway Station",
-      addressLocality: "Varanasi",
-      addressRegion: "Uttar Pradesh",
-      postalCode: "221004",
-      addressCountry: "IN",
+      streetAddress: `${SITE_INFO.streetLine1} ${SITE_INFO.streetLine2}`.replace(/,\s+/g, ", "),
+      addressLocality: SITE_INFO.city,
+      addressRegion: SITE_INFO.region,
+      postalCode: SITE_INFO.postalCode,
+      addressCountry: SITE_INFO.country,
     },
     sameAs: [
       "https://www.facebook.com/theelegancehotel/",
