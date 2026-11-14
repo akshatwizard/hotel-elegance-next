@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { API_BASE } from "@/lib/config";
+import { SITE_URL } from "@/utils/metadata";
 
 // Server-side gate in front of the backend's enquiry endpoints.
 // Blocks the cheap bots (honeypot, instant submits, link spam, floods) and
@@ -25,6 +26,43 @@ function rateLimited(ip) {
     for (const [k, v] of hits) if (!v.some((t) => now - t < WINDOW_MS)) hits.delete(k);
   }
   return recent.length > MAX_PER_WINDOW;
+}
+
+// Where on the site the enquiry was sent from, taken from the browser's Referer
+// (path only, query stripped) so the notification email can say which page it was.
+const PAGE_LABELS = {
+  "/": "Home page",
+  "/contact": "Contact page",
+  "/tariff": "Tariff page",
+  "/gallery": "Gallery page",
+  "/facilities": "Facilities page",
+  "/blog": "Blog listing",
+  "/near-by-place": "Nearby places listing",
+  "/hotel-rooms-in-varanasi": "Rooms listing page",
+  "/best-banquet-budget-varanasi": "Banquets page",
+  "/best-lounge-varansasi-tafri-elegance": "Tafri lounge page",
+  "/budget-restaurant-varanasi": "Restaurant page",
+};
+const titleCase = (slug) => slug.replace(/[-_]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+function sourcePage(request) {
+  try {
+    const ref = request.headers.get("referer");
+    if (!ref) return {};
+    let path = new URL(ref).pathname.replace(/\/+$/, "") || "/";
+    path = path.slice(0, 200);
+    let label = PAGE_LABELS[path];
+    if (!label) {
+      const [, section, slug] = path.split("/");
+      if (section === "hotel-rooms-in-varanasi" && slug) label = `Room page: ${titleCase(slug)}`;
+      else if (section === "blog" && slug) label = `Blog post: ${titleCase(slug)}`;
+      else if (section === "near-by-place" && slug) label = `Nearby place: ${titleCase(slug)}`;
+      else label = titleCase(path.split("/").filter(Boolean).pop() || "Website");
+    }
+    return { page_label: label.slice(0, 100), page_url: `${SITE_URL}${path === "/" ? "" : path}` };
+  } catch {
+    return {};
+  }
 }
 
 const str = (v, max) => (typeof v === "string" ? v.trim().slice(0, max) : "");
@@ -99,7 +137,7 @@ export async function POST(request) {
     const upstream = await fetch(`${API_BASE}/${ENDPOINT[kind]}`, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json", "X-Client-IP": ip },
-      body: JSON.stringify(clean),
+      body: JSON.stringify({ ...clean, ...sourcePage(request) }),
       signal: AbortSignal.timeout(10_000),
     });
     const data = await upstream.json().catch(() => ({ status: upstream.ok }));
