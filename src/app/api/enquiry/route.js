@@ -98,7 +98,7 @@ export async function POST(request) {
   try {
     const upstream = await fetch(`${API_BASE}/${ENDPOINT[kind]}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: { "Content-Type": "application/json", Accept: "application/json", "X-Client-IP": ip },
       body: JSON.stringify(clean),
       signal: AbortSignal.timeout(10_000),
     });
