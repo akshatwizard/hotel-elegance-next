@@ -1,3 +1,4 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import { Suspense } from 'react';
 import { HomeBlog } from './HomeBlog';
 const HomeBlogSkeleton = () => {
@@ -75,9 +76,7 @@ const HomeBlogSkeleton = () => {
 };
 async function getHomeBlogData() {
     try {
-        const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/home-blog"
-        );
+        const res = await fetch(API_BASE + "/home-blog", { next: { revalidate: REVALIDATE_SECONDS } });
 
 
         if (!res.ok) {
@@ -90,7 +89,7 @@ async function getHomeBlogData() {
         throw new Error("Blog data not found");
     } catch (error) {
         console.error("Blog data fetch error:", error);
-        return null;
+        return [];
     }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'next/link';  
+import Link from 'next/link';
+import { SITE_INFO } from '@/lib/siteInfo';  
 import FooterPhoneNumbers from './FooterPhoneNumbers/FooterPhoneNumbers';  
 const Footer = () => {
     return (
@@ -13,7 +14,7 @@ const Footer = () => {
                                 <div className="rx-social-media footer-widget--about">
                                     <div className="mobile-flex">
                                         <div className="rx-logo">
-                                            <img src="/assets/dev-img/logo/logo-bg.jpg" alt="logo" />
+                                            <img src="/assets/dev-img/logo/logo-bg.jpg" alt="The Elegance Hotel Varanasi logo" />
                                         </div>
                                         <div className="inner-contact">
                                             <p>
@@ -27,7 +28,7 @@ const Footer = () => {
                                         <div className="rx-footer-last-logo">
                                             <div className="rx-inner-footer-logo">
                                                 <a
-                                                    target="_blank"
+                                                    target="_blank" rel="noopener noreferrer"
                                                     href="https://www.facebook.com/theelegancehotel/"
                                                 >
                                                     <i className="ri-facebook-line" />
@@ -35,7 +36,7 @@ const Footer = () => {
                                             </div>
                                             <div className="rx-inner-footer-logo">
                                                 <a
-                                                    target="_blank"
+                                                    target="_blank" rel="noopener noreferrer"
                                                     href="https://www.instagram.com/theelegancehotel/"
                                                 >
                                                     <i className="ri-instagram-line" />
@@ -91,11 +92,11 @@ const Footer = () => {
                                     <div className="inner-info">
                                         <h5>Contact</h5>
                                         <p>
-                                            N 10/60, Kakarmatta, DLW Road,
+                                            {SITE_INFO.streetLine1}
                                             <br />
-                                            near Banaras Railway Station,
+                                            {SITE_INFO.streetLine2}
                                             <br />
-                                            Varanasi, Uttar Pradesh - 221004
+                                            {SITE_INFO.city}, {SITE_INFO.region} - {SITE_INFO.postalCode}
                                         </p>
                                     </div>
                                     <div className="inner-info">
@@ -122,7 +123,7 @@ const Footer = () => {
                                         <p>
                                             © 2025 <a href="#">www.theelegance.co.in</a>, All Rights
                                             Reserved. | Website Designed &amp; Maintained by{" "}
-                                            <a href="https://wizards.co.in/" target="_blank">
+                                            <a href="https://wizards.co.in/" target="_blank" rel="noopener noreferrer">
                                                 Wizards Next LLP.
                                             </a>
                                         </p>

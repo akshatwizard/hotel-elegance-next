@@ -95,14 +95,14 @@ const SapphireBanquet = ({ sapphireData }) => {
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
                                     <img
-                                        src="assets/img/banner/left-shape.svg"
-                                        alt="banner-left-shape"
+                                        src="/assets/img/banner/left-shape.svg"
+                                        alt="" aria-hidden="true"
                                         className="svg-img left-side"
                                     />
                                     Sapphire Banquet
                                     <img
-                                        src="assets/img/banner/right-shape.svg"
-                                        alt="banner-right-shape"
+                                        src="/assets/img/banner/right-shape.svg"
+                                        alt="" aria-hidden="true"
                                         className="svg-img right-side"
                                     />
                                 </p>
@@ -134,14 +134,14 @@ const SapphireBanquet = ({ sapphireData }) => {
                         <div className="rx-banner text-center rx-banner-effects">
                             <p>
                                 <img
-                                    src="assets/img/banner/left-shape.svg"
-                                    alt="banner-left-shape"
+                                    src="/assets/img/banner/left-shape.svg"
+                                    alt="" aria-hidden="true"
                                     className="svg-img left-side"
                                 />
                                 Sapphire Banquet
                                 <img
-                                    src="assets/img/banner/right-shape.svg"
-                                    alt="banner-right-shape"
+                                    src="/assets/img/banner/right-shape.svg"
+                                    alt="" aria-hidden="true"
                                     className="svg-img right-side"
                                 />
                             </p>

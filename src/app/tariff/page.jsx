@@ -44,7 +44,7 @@ export default function tariffPage() {
         {
             title: "STANDARD ROOM",
             image: "/assets/dev-img/room/standard-room.jpg",
-            doublePrice: "Rs. 4000",
+            doublePrice: "Rs. 5000",
             features: ["Comfort Plus", "Garden View", "Coffee Maker"],
             highlight: null
         },
@@ -55,7 +55,7 @@ export default function tariffPage() {
         <>
             {/* Breadcrumb */}
             <Breadcrumb 
-                title="Tariff" 
+                title="Tariff" heading="Hotel Room Tariff in Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/best=room-rates-varanasi.jpeg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Tariff.jpg"
                 subtitle=""
@@ -67,14 +67,14 @@ export default function tariffPage() {
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
                                     <img
-                                        src="assets/img/banner/left-shape.svg"
-                                        alt="banner-left-shape"
+                                        src="/assets/img/banner/left-shape.svg"
+                                        alt="" aria-hidden="true"
                                         className="svg-img left-side"
                                     />
                                     Room Tariffs
                                     <img
-                                        src="assets/img/banner/right-shape.svg"
-                                        alt="banner-right-shape"
+                                        src="/assets/img/banner/right-shape.svg"
+                                        alt="" aria-hidden="true"
                                         className="svg-img right-side"
                                     />
                                 </p>

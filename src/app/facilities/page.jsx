@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/utils/metadata";
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import Image from 'next/image';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
@@ -5,9 +7,9 @@ import { LeftShapeSVG, RightShapeSVG } from '@/components/SVG/BannerShapes';
 async function getFacilitiesData() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/facilities',
+            API_BASE + '/facilities',
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
         if (!res.ok) {
@@ -20,26 +22,11 @@ async function getFacilitiesData() {
     }
 }
 
-export async function generateMetadata() {
-    try {
-        const data = await getFacilitiesData();       
-        return {
-            title: 'Hotel Facilities at The Elegance Varanasi | Comfort Assured',
-            description: `Explore modern hotel facilities at The Elegance Varanasi. From comfort to convenience, everything is designed for a relaxing stay and events.`,
-            alternates: {
-                canonical: "https://www.theelegance.co.in/facilities",
-            },
-        };
-    } catch (error) {
-        return {
-            title: 'Hotel Facilities at The Elegance Varanasi | Comfort Assured',
-            description: `Explore modern hotel facilities at The Elegance Varanasi. From comfort to convenience, everything is designed for a relaxing stay and events.`,
-            alternates: {
-                canonical: "https://www.theelegance.co.in/facilities",
-            },
-        };
-    }
-}
+export const metadata = buildMetadata({
+    title: 'Hotel Facilities in Varanasi',
+    description: 'Explore modern hotel facilities at The Elegance Varanasi. From comfort to convenience, everything is designed for a relaxing stay and events.',
+    path: '/facilities',
+});
 
 export default async function FacilitiesPage() {
     const facilitiesData = await getFacilitiesData();
@@ -48,7 +35,7 @@ export default async function FacilitiesPage() {
     return (
         <>
             <Breadcrumb 
-                title="Facilities" 
+                title="Facilities" heading="Hotel Facilities at The Elegance, Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/Facilities.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Facilities.jpg"
                 subtitle=""

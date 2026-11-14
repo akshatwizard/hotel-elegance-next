@@ -1,11 +1,10 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import { Suspense } from 'react';
 import NearByPlaceSkeleton from './NearByPlaceSkeleton';
 import { NeatByPlaceListPage } from './near-by-place-card';
 async function getNearByPlaceUrl() {
     try {
-        const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/near-by-pace-list"
-        );
+        const res = await fetch(API_BASE + "/near-by-pace-list", { next: { revalidate: REVALIDATE_SECONDS } });
         if (!res.ok) {
             throw new Error(`Failed to fetch Near by places: ${res.status}`);
         }

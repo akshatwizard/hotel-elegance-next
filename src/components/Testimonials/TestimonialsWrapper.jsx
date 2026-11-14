@@ -1,8 +1,7 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 async function getTestimonialsUrl() {
     try {
-        const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/testimonials-home"
-        );
+        const res = await fetch(API_BASE + "/testimonials-home", { next: { revalidate: REVALIDATE_SECONDS } });
 
         if (!res.ok) {
             throw new Error(`Failed to fetch testimonials. Status: ${res.status}`);

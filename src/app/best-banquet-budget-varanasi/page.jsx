@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/utils/metadata";
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import OnexBanquet from './OnexBanquet'; 
 import SapphireBanquet from './SapphireBanquet'; 
@@ -6,9 +8,9 @@ import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 async function getOnexBanquetData() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/banquets/onex-banquet',
+            API_BASE + '/banquets/onex-banquet',
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         ); 
         if (!res.ok) {
@@ -24,9 +26,9 @@ async function getOnexBanquetData() {
 async function getSapphireBanquetData() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/banquets/sapphire-banquet',
+            API_BASE + '/banquets/sapphire-banquet',
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
         
@@ -40,28 +42,11 @@ async function getSapphireBanquetData() {
         return null;
     }
 }
-export async function generateMetadata() {
-  try {
-    const onexData = await getOnexBanquetData();
-    const title ="Best Budget Banquet Hall in Varanasi | Events & Celebrations";
-    const description = "Find the best budget banquet hall in Varanasi for weddings, parties, and corporate events with spacious halls, great service, and elegant décor.";
-    return {
-      title: title,
-      description: description,
-      alternates: {
-        canonical: "https://www.theelegance.co.in/best-banquet-budget-varanasi",
-      },
-    };
-  } catch (error) {
-    return {
-      title: "Banquets - Hotel Elegance",
-      description: "Premium banquet halls for your special celebrations",
-      alternates: {
-        canonical: "https://www.theelegance.co.in/best-banquet-budget-varanasi",
-      },
-    };
-  }
-}
+export const metadata = buildMetadata({
+    title: 'Budget Banquet Hall in Varanasi',
+    description: 'Find the best budget banquet hall in Varanasi for weddings, parties, and corporate events with spacious halls, great service, and elegant décor.',
+    path: '/best-banquet-budget-varanasi',
+});
 
 
 export default async function BanquetsPage() {
@@ -72,7 +57,7 @@ export default async function BanquetsPage() {
     return (
         <>
             <Breadcrumb 
-                title="Banquets" 
+                title="Banquets" heading="Budget Banquet Halls in Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/Banquet.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Banquets.jpg"
                 subtitle=""

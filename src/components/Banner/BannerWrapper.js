@@ -1,8 +1,7 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 async function getVideoUrl() {
   try {
-    const res = await fetch(
-      "https://www.inforbit.in/demo/hotel-elegance-backend/api/banner/video"
-    );
+    const res = await fetch(API_BASE + "/banner/video", { next: { revalidate: REVALIDATE_SECONDS } });
     if (!res.ok) {
       throw new Error(`Failed to fetch video. Status: ${res.status}`);
     }

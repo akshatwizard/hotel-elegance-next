@@ -18,39 +18,39 @@ export const AccommodationDining = () => {
     const [items] = React.useState([
         {
             id: 1,
-            bigImage: "assets/dev-img/accommodation/big-img/multi-cusine-resturant.jpg",
-            logo: "assets/dev-img/accommodation/multi-cuisine-restaurant.jpeg",
+            bigImage: "/assets/dev-img/accommodation/big-img/multi-cusine-resturant.jpg",
+            logo: "/assets/dev-img/accommodation/multi-cuisine-restaurant.jpeg",
             title: "Multi-Cuisine Restaurant",
             subtitle: "Best in Banaras",
             description: "At Urban Chaupal, the best multi-cuisine restaurant in the city, discover Varanasi's rich tapestry, blending traditional customs with contemporary cuisine. Varanasi is embodied in our restaurant."
         },
         {
             id: 2,
-            bigImage: "assets/dev-img/accommodation/big-img/onex-banquet.jpg",
-            logo: "assets/dev-img/accommodation/onex-logo.jpg",
+            bigImage: "/assets/dev-img/accommodation/big-img/onex-banquet.jpg",
+            logo: "/assets/dev-img/accommodation/onex-logo.jpg",
             title: "Onex Banquet",
             subtitle: "For every Occassion",
             description: "The Elegance Hotel offers you Onex Banquet, the Best Banquet in Varanasi near DLW and BHU. If you have a Engagement, Birthday Party, Reception, Family Get Together, Wedding Anniversary, Ring Ceremony, Sangeet & Mehandi Function."
         },
         {
             id: 3,
-            bigImage: "assets/dev-img/accommodation/big-img/lounge.jpg",
-            logo: "assets/dev-img/accommodation/bar-and-lounge.png",
+            bigImage: "/assets/dev-img/accommodation/big-img/lounge.jpg",
+            logo: "/assets/dev-img/accommodation/bar-and-lounge.png",
             title: "Lounge",
             subtitle: "For Best Evenings",
             description: "Welcome to the newest hotspot in Varanasi, the exquisite Tafri Bar & Lounge at The Elegance Hotel. Nestled within one of the city's top 10 hotels, our lounge offers an unparalleled experience for locals and visitors alike."
         },
         {
             id: 4,
-            bigImage: "assets/dev-img/accommodation/big-img/sapphire-banquet.jpg",
-            logo: "assets/dev-img/accommodation/onex-logo.jpg",
+            bigImage: "/assets/dev-img/accommodation/big-img/sapphire-banquet.jpg",
+            logo: "/assets/dev-img/accommodation/onex-logo.jpg",
             title: "Sapphire Banquet",
             subtitle: "For all Events",
             description: "The Elegance Hotel offers you Onex Banquet, the Best Banquet in Varanasi near DLW and BHU. If you have a Engagement, Birthday Party, Reception, Family Get Together, Wedding Anniversary, Ring Ceremony, Sangeet & Mehandi Function."
         },
         {
             id: 5,
-            bigImage: "assets/dev-img/accommodation/big-img/suites.jpg",
+            bigImage: "/assets/dev-img/accommodation/big-img/suites.jpg",
             title: "Suites",
             subtitle: "2 Suite Rooms",
             description: "Welcome to The Elegance Hotel in Varanasi, to create an unforgettable travel experience. Our hotel rooms in Varanasi city offer a comfortable and convenient stay for travelers eager to explore."
@@ -62,7 +62,7 @@ export const AccommodationDining = () => {
                <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                        backgroundImage: "url(assets/dev-img/bg.jpg)"
+                        backgroundImage: "url(/assets/dev-img/bg.jpg)"
                     }}
                 />
                 <div className="absolute inset-0 bg-black/70" />
@@ -73,14 +73,14 @@ export const AccommodationDining = () => {
                                 <div className="rx-banner text-center rx-banner-effects">
                                     <p>
                                         <img
-                                            src="assets/img/banner/left-shape.svg"
-                                            alt="banner-left-shape"
+                                            src="/assets/img/banner/left-shape.svg"
+                                            alt="" aria-hidden="true"
                                             className="svg-img left-side"
                                         />
                                         The Elegance
                                         <img
-                                            src="assets/img/banner/right-shape.svg"
-                                            alt="banner-right-shape"
+                                            src="/assets/img/banner/right-shape.svg"
+                                            alt="" aria-hidden="true"
                                             className="svg-img right-side"
                                         />
                                     </p>

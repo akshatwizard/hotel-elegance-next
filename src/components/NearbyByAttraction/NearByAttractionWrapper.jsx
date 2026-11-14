@@ -1,8 +1,7 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 async function getNearByAttractionUrl() {
     try {
-        const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/attraction-home"
-        );
+        const res = await fetch(API_BASE + "/attraction-home", { next: { revalidate: REVALIDATE_SECONDS } });
         if (!res.ok) {
             throw new Error(`Failed to fetch attractions. Status: ${res.status}`);
         }
@@ -15,7 +14,7 @@ async function getNearByAttractionUrl() {
         throw new Error("Attractions data not found");
     } catch (error) {
         console.error("Api data fetch error:", error);
-        return null;
+        return [];
     }
 }
 

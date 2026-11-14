@@ -1,4 +1,7 @@
 "use client";
+import { SITE_INFO } from "@/lib/siteInfo";
+import { postEnquiry } from "@/lib/enquiryClient";
+import { useFormGuard } from "@/lib/useFormGuard";
 import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -16,6 +19,7 @@ export default function ContactUsPage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
     const [submitMessage, setSubmitMessage] = useState('');
+    const { field: guardField, guard } = useFormGuard();
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -98,14 +102,7 @@ export default function ContactUsPage() {
                 subject: formData.subject.trim(),
                 message: formData.message.trim()
             };
-            const response = await fetch('https://www.inforbit.in/demo/hotel-elegance-backend/api/enquiry', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify(enquiryData)
-            });
+            const response = await postEnquiry('enquiry', enquiryData, guard());
             const result = await response.json();
             if (response.ok && result.status === true) {
                 setFormData({
@@ -151,7 +148,7 @@ export default function ContactUsPage() {
         <>
             {/* Breadcrumb */}
             <Breadcrumb 
-                title="Contact Us" 
+                title="Contact Us" heading="Contact The Elegance Hotel, Varanasi" 
                 backgroundImage="/assets/img/banner/banner.jpg"
                 subtitle=""
             />
@@ -172,14 +169,14 @@ export default function ContactUsPage() {
                                 </h3>
                                 <address className="text-gray-600 not-italic space-y-1">
                                     <p className="leading-relaxed">
-                                        N 10/60, Kakarmatta, DLW Road,<br />
-                                        Near Banaras Railway Station,<br />
-                                        Varanasi, Uttar Pradesh - 221004
+                                        {SITE_INFO.streetLine1}<br />
+                                        {SITE_INFO.streetLine2}<br />
+                                        {SITE_INFO.city}, {SITE_INFO.region} - {SITE_INFO.postalCode}
                                     </p>
                                 </address>
                                 <div className="mt-4">
                                     <a
-                                        href="https://maps.google.com/maps?width=1405&height=568&hl=en&q=Kakarmatta N.10/60 AM Kakarmatta, DLW Varanasi (U.P) 221106, Varanasi, Uttar Pradesh 221004&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                        href="https://maps.google.com/maps?width=1405&height=568&hl=en&q=Kakarmatta N.10/60 AM Kakarmatta, DLW Varanasi (U.P) 221004, Varanasi, Uttar Pradesh 221004&t=&z=14&ie=UTF8&iwloc=B&output=embed"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center text-[#410f06]! font-medium hover:text-primary/80 transition-colors duration-300"
@@ -311,7 +308,7 @@ export default function ContactUsPage() {
                                     <div className="col-lg-6 col-12 mb-24">
                                         <div className="rx-contact-touch-ifrem">
                                             <iframe
-                                                src="https://maps.google.com/maps?width=1405&height=568&hl=en&q=Kakarmatta N.10/60 AM Kakarmatta, DLW Varanasi (U.P) 221106, Varanasi, Uttar Pradesh 221004&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                                                src="https://maps.google.com/maps?width=1405&height=568&hl=en&q=Kakarmatta N.10/60 AM Kakarmatta, DLW Varanasi (U.P) 221004, Varanasi, Uttar Pradesh 221004&t=&z=14&ie=UTF8&iwloc=B&output=embed"
                                                 className="w-full h-[400px] rounded-lg"
                                                 title="Hotel Elegance Location"
                                             />
@@ -321,6 +318,7 @@ export default function ContactUsPage() {
                                     <div className="col-lg-6 col-12 mb-24">
                                         <div className="rx-inner-form">
                                             <form onSubmit={handleSubmit}>
+                                                {guardField}
                                                 <div className="row">
                                                     <div className="col-lg-6 col-12 mb-24">
                                                         <div className="rx-input-box">

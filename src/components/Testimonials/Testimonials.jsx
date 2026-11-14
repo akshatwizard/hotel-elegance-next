@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { LeftShapeSVG, RightShapeSVG } from '../SVG/BannerShapes';
@@ -12,10 +12,10 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 export const Testimonials = ({ initialTestimonials = [] }) => {
-    const [testimonials, setTestimonials] = useState([]);
-
-    useEffect(() => {
-        if (initialTestimonials && initialTestimonials.length > 0) {
+    // Derived synchronously (not in an effect) so reviews are in the server HTML.
+    const testimonials = useMemo(() => {
+        if (!initialTestimonials || initialTestimonials.length === 0) return [];
+        {
             const transformedTestimonials = initialTestimonials.map((item, index) => ({
                 id: item.id || index + 1,
                 hotelName: item.title || "Guest Review",
@@ -31,7 +31,7 @@ export const Testimonials = ({ initialTestimonials = [] }) => {
                     sleepQuality: item.ratings?.sleepQuality || 5.0
                 }
             }));
-            setTestimonials(transformedTestimonials);
+            return transformedTestimonials;
         }
     }, [initialTestimonials]);    
 
@@ -63,8 +63,8 @@ export const Testimonials = ({ initialTestimonials = [] }) => {
                         <div className="rx-banner text-center rx-banner-effects">
                             <p className="testimonials-flex mb-2">
                                 <LeftShapeSVG/>
-                                <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html" target="_blank" aria-label="Tripadvisor Logo">
-                                    <img src="assets/dev-img/Tripadvisor-Logo.png" alt="Tripadvisor Logo" />
+                                <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html" target="_blank" rel="noopener noreferrer" aria-label="Tripadvisor Logo">
+                                    <img src="/assets/dev-img/Tripadvisor-Logo.png" alt="Tripadvisor Logo" />
                                 </a>
                                 <RightShapeSVG/>
                             </p>
@@ -140,7 +140,7 @@ export const Testimonials = ({ initialTestimonials = [] }) => {
                         className="col-md-12 mb-3 mt-2 text-center"
                     >
                         <div className="text-center">
-                            <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html#REVIEWS" target="_blank" className="btn rx-btn-two rounded">
+                            <a href="https://www.tripadvisor.in/Hotel_Review-g297685-d23708537-Reviews-The_Elegance_Hotel-Varanasi_Varanasi_District_Uttar_Pradesh.html#REVIEWS" target="_blank" rel="noopener noreferrer" className="btn rx-btn-two rounded">
                                 View More Reviews On Trip Advisor
                             </a>
                         </div>

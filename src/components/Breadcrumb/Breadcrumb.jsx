@@ -1,12 +1,17 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbSchema } from '@/lib/seo';
 
 export default function Breadcrumb({
     title,
+    heading,
     backgroundImage = "/assets/img/banner/banner.jpg",
     mobileBackgroundImage = "/assets/img/banner/banner.jpg",
     subtitle = ""
 }) {
+    const pathname = usePathname();
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const checkMobile = () => {
@@ -19,6 +24,7 @@ export default function Breadcrumb({
     const imageToUse = isMobile && mobileBackgroundImage ? mobileBackgroundImage : backgroundImage;
     return (
         <section className="section-breadcrumb padding-b-50">
+            <JsonLd data={breadcrumbSchema(pathname, title)} />
             <div
                 className="rx-breadcrumb-image"
                 style={{ 
@@ -34,7 +40,7 @@ export default function Breadcrumb({
                             <div className="row">
                                 <div className="col-12">
                                     <div className="rx-banner-contact">
-                                        <h1>{title}</h1>
+                                        <h1>{heading || title}</h1>
                                         {subtitle && <p className="mt-2">{subtitle}</p>}
                                     </div>
                                 </div>

@@ -1,22 +1,28 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
+import { notFound } from 'next/navigation';
+import { buildMetadata } from '@/utils/metadata';
 import 'aos/dist/aos.css';
 import NearByPlaceDetailsPage from './NearByPlaceDetailsPage';
 
 async function getNearByPlaceDetails(slug) {
     try {
         const res = await fetch(
-            `https://www.inforbit.in/demo/hotel-elegance-backend/api/near-by-pace-list/${slug}`,
+            `${API_BASE}/near-by-pace-list/${slug}`,
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
+        if (res.status === 404) return { status: false };
         if (!res.ok) {
             throw new Error(`Failed to fetch data: ${res.status}`);
         }
         return await res.json();
     } catch (error) {
+        // Backend unreachable: throw so the response is a retryable error,
+        // not an indexable "not found" page.
         console.error('Error fetching data:', error.message);
-        return null;
+        throw error;
     }
 }
 export async function generateMetadata({ params }) {
@@ -24,22 +30,14 @@ export async function generateMetadata({ params }) {
     const { slug } = await params;
     const data = await getNearByPlaceDetails(slug);
     if (!data?.status) {
-      return {
-        title: "Place Not Found - Hotel Elegance",
-        description: "Nearby place information not available",
-      };
+      return { title: "Place Not Found | The Elegance Hotel", robots: { index: false } };
     }
-    return {
-      title:
-        data.data.meta_title ||
-        `${data.data.title} - Hotel Elegance`,
-      description:
-        data.data.meta_description ||
-        data.data.short_desc,
-      alternates: {
-        canonical: `https://www.theelegance.co.in/near-by-place/${slug}`,
-      },
-    };
+    return buildMetadata({
+      title: data.data.meta_title || data.data.title,
+      description: data.data.meta_description || data.data.short_desc,
+      path: `/near-by-place/${slug}`,
+      image: data.data.image_url || undefined,
+    });
 
   } catch (error) {
     return {
@@ -50,35 +48,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-    try {
-        const { slug } = await params;
-        const placeData = await getNearByPlaceDetails(slug);
-        if (!placeData?.status) {
-            return (
-                <div className="section-blog-details padding-t-50 padding-b-100">
-                    <div className="container">
-                        <div className="text-center text-danger py-5">
-                            <h4>Place not found</h4>
-                            <p>Sorry, we couldn't find the place you're looking for.</p>
-                            <p className="small text-muted mt-2">Slug: {slug}</p>
-                        </div>
-                    </div>
-                </div>
-            );
-        }
-        return <NearByPlaceDetailsPage initialData={placeData} />;
-    } catch (error) {
-        console.error('Error in Page component:', error);
-        return (
-            <div className="section-blog-details padding-t-50 padding-b-100">
-                <div className="container">
-                    <div className="text-center text-danger py-5">
-                        <h4>Error Loading Page</h4>
-                        <p>There was a problem loading the page. Please try again.</p>
-                        <p className="small text-muted mt-2">{error.message}</p>
-                    </div>
-                </div>
-            </div>
-        );
-    }
+    const { slug } = await params;
+    const placeData = await getNearByPlaceDetails(slug);
+    if (!placeData?.status) notFound();
+    return <NearByPlaceDetailsPage initialData={placeData} />;
 }

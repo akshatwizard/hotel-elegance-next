@@ -146,7 +146,7 @@ export default function BlogDetailsPage({ blog }) {
                                                     />
                                                 ) : (
                                                     <img 
-                                                        src="assets/img/blog/placeholder.jpg" 
+                                                        src="/assets/img/blog/placeholder.jpg" 
                                                         alt={post.title}
                                                     />
                                                 )}

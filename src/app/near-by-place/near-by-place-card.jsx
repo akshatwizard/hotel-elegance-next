@@ -24,7 +24,7 @@ export function NeatByPlaceListPage({ initialNearByPlace }) {
         <>
             {/* Breadcrumb */}
             <Breadcrumb
-                title="Near By Places"
+                title="Near By Places" heading="Places to Visit Near Our Varanasi Hotel"
                 backgroundImage="/assets/dev-img/bread-banner/Rooms.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Rooms.jpg"
                 subtitle=""
@@ -45,7 +45,7 @@ export function NeatByPlaceListPage({ initialNearByPlace }) {
                                                 alt={place.title}
                                                 className="w-full object-cover"
                                                 onError={(e) => {
-                                                    e.target.src = 'assets/img/placeholder-image.jpg';
+                                                    e.target.src = '/assets/img/placeholder-image.jpg';
                                                 }}
                                             />
                                         </div>

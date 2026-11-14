@@ -1,12 +1,14 @@
+import { buildMetadata } from "@/utils/metadata";
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import React from 'react';
 import ImageComponent from './ImageComponent';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
 async function getTafriLoungeImages() {
     try {
         const res = await fetch(
-            'https://www.inforbit.in/demo/hotel-elegance-backend/api/tafri-lounge-image',  
+            API_BASE + '/tafri-lounge-image',  
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }    
         );
 
@@ -20,33 +22,18 @@ async function getTafriLoungeImages() {
     }
 }
 
-export async function generateMetadata() {
-    try {
-        const data = await getTafriLoungeImages();
-        return {
-            title: 'Best Lounge in Varanasi for Food, Drinks & Vibes',
-            description: 'Unwind at one of the best lounges in Varanasi. Enjoy great food, refreshing drinks, and a lively ambience at Tafri – The Elegance Lounge.',
-            alternates: {
-                canonical: "https://www.theelegance.co.in/best-lounge-varansasi-tafri-elegance",
-            },
-        };
-    } catch (error) {
-        return {
-            title: 'Best Lounge in Varanasi for Food, Drinks & Vibes',
-            description: 'Unwind at one of the best lounges in Varanasi. Enjoy great food, refreshing drinks, and a lively ambience at Tafri – The Elegance Lounge.',
-            alternates: {
-                canonical: "https://www.theelegance.co.in/best-lounge-varansasi-tafri-elegance",
-            },
-        };
-    }
-}
+export const metadata = buildMetadata({
+    title: 'Best Lounge in Varanasi - Tafri',
+    description: 'Unwind at one of the best lounges in Varanasi. Enjoy great food, refreshing drinks, and a lively ambience at Tafri – The Elegance Lounge.',
+    path: '/best-lounge-varansasi-tafri-elegance',
+});
 
 export default async function TafriLoungePage() {
     const imagesData = await getTafriLoungeImages();
     return (
         <>
             <Breadcrumb 
-                title="Tafri Lounge by Elegance" 
+                title="Tafri Lounge by Elegance" heading="Tafri Lounge - Best Lounge in Varanasi" 
                 backgroundImage="/assets/dev-img/bread-banner/Taffri.jpg"
                 mobileBackgroundImage="/assets/dev-img/bread-banner/mobile/Tafri-Lounge.jpg"
                 subtitle=""
@@ -61,11 +48,11 @@ export default async function TafriLoungePage() {
                         >
                             <div className="rx-banner text-center rx-banner-effects">
                                 <p>
-                                    <img alt="banner-left-shape" className="svg-img left-side"
-                                        src="assets/img/banner/left-shape.svg"
+                                    <img alt="" aria-hidden="true" className="svg-img left-side"
+                                        src="/assets/img/banner/left-shape.svg"
                                     />
                                     Tafri Lounge
-                                    <img alt="banner-right-shape" className="svg-img right-side" src="assets/img/banner/right-shape.svg"
+                                    <img alt="" aria-hidden="true" className="svg-img right-side" src="/assets/img/banner/right-shape.svg"
                                     />
                                 </p>
                                 <h2>

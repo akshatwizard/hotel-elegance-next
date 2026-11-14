@@ -1,4 +1,6 @@
 "use client";
+import { postEnquiry } from "@/lib/enquiryClient";
+import { useFormGuard } from "@/lib/useFormGuard";
 import { useState, useEffect } from 'react';
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
@@ -20,7 +22,7 @@ export default function Banner({ initialVideo }) {
     const [videoError, setVideoError] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const API_URL = 'https://www.inforbit.in/demo/hotel-elegance-backend/api/home-enquiry';
+    const { field: guardField, guard } = useFormGuard();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,14 +50,7 @@ export default function Banner({ initialVideo }) {
             phone: phoneNumber
         };
         try {
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
+            const response = await postEnquiry('home-enquiry', formData, guard());
             const data = await response.json();
             if (response.ok && data.status) {
                 toast.success(data.message || 'Enquiry submitted successfully! We will contact you soon.');
@@ -179,6 +174,7 @@ export default function Banner({ initialVideo }) {
                     </div>
                 ) : (
                     <form id="book-now-form" onSubmit={handleSubmit}>
+                        {guardField}
                         <div className="container desktop rounded">
                             <div className="row">
                                 <div className="book-grid">

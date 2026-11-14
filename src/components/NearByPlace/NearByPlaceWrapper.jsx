@@ -1,8 +1,7 @@
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 async function getNearByPlaceUrl() {
     try {
-        const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/near-place-home"
-        );
+        const res = await fetch(API_BASE + "/near-place-home", { next: { revalidate: REVALIDATE_SECONDS } });
         if (!res.ok) {
             throw new Error(`Failed to fetch Near by place Status: ${res.status}`);
         }
@@ -29,14 +28,14 @@ function NearByPlaceSkeleton() {
                         <div className="rx-banner text-center rx-banner-effects">
                             <p>
                                 <img
-                                    src="assets/img/banner/left-shape.svg"
-                                    alt="banner-left-shape"
+                                    src="/assets/img/banner/left-shape.svg"
+                                    alt="" aria-hidden="true"
                                     className="svg-img left-side"
                                 />
                                 Nearby Places
                                 <img
-                                    src="assets/img/banner/right-shape.svg"
-                                    alt="banner-right-shape"
+                                    src="/assets/img/banner/right-shape.svg"
+                                    alt="" aria-hidden="true"
                                     className="svg-img right-side"
                                 />
                             </p>

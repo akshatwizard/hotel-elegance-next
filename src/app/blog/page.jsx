@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/utils/metadata";
+import { API_BASE, REVALIDATE_SECONDS } from "@/lib/config";
 import { Suspense } from "react";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import BlogList from "./BlogList";
@@ -6,9 +8,9 @@ import BlogSkeleton from "./BlogSkeleton";
 async function getBlogList() {
     try {
         const res = await fetch(
-            "https://www.inforbit.in/demo/hotel-elegance-backend/api/blog",
+            API_BASE + "/blog",
             {
-                cache: "no-store",
+                next: { revalidate: REVALIDATE_SECONDS },
             }
         );
 
@@ -28,16 +30,12 @@ async function getBlogList() {
         return [];
     }
 }
-export async function generateMetadata() {
-    return {
-        title: "Hotel & Travel Blog in Varanasi | Stay, Food & Nearby Places",
-        description:
-            "Explore our Varanasi travel blog covering hotel stays, nearby attractions, food experiences, travel tips, and insights for a memorable visit.",
-        alternates: {
-            canonical: "https://www.theelegance.co.in/blog",
-        },
-    };
-}
+export const metadata = buildMetadata({
+    title: "Varanasi Travel & Hotel Blog",
+    description:
+        "Explore our Varanasi travel blog covering hotel stays, nearby attractions, food experiences, travel tips, and insights for a memorable visit.",
+    path: "/blog",
+});
 
 export default async function BlogPage() {
     const blogData = await getBlogList();
@@ -45,7 +43,7 @@ export default async function BlogPage() {
     return (
         <>
             <Breadcrumb
-                title="Blog"
+                title="Blog" heading="Varanasi Travel & Hotel Blog"
                 backgroundImage="/assets/dev-img/bread-banner/Tariff.jpg"
                 mobileBackgroundImage=""
                 subtitle=""
