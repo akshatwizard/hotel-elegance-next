@@ -23,7 +23,7 @@ export const metadata = {
   ...buildMetadata({
     title: "Best Hotel in Varanasi near Railway Station | The Elegance",
     description:
-      "The Elegance - Best Boutique Hotel in Varanasi near Banaras Railway Station and BHU. Situated close to BLW, the Hotel is the best place for Stay in Varanasi.",
+      "The Elegance is a 3-star boutique hotel in Varanasi near Banaras Railway Station and BHU, with 27 AC rooms, breakfast included, a rooftop restaurant and banquet halls.",
     path: "/",
   }),
   title: { absolute: "Best Hotel in Varanasi near Railway Station | The Elegance" },

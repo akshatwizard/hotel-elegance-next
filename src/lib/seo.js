@@ -29,7 +29,8 @@ export function hotelSchema() {
     url: SITE_URL,
     image: [`${SITE_URL}${DEFAULT_OG_IMAGE.url}`],
     description:
-      "Boutique hotel in Varanasi near Banaras Railway Station and BHU, close to BLW, with rooms, a restaurant, banquet halls and a lounge.",
+      "3-star boutique hotel in Varanasi near Banaras Railway Station and BHU, close to BLW, with rooms, a restaurant, banquet halls and a lounge.",
+    starRating: { "@type": "Rating", ratingValue: "3" },
     telephone: SITE_INFO.primaryPhone,
     email: SITE_INFO.email,
     address: {

@@ -100,9 +100,9 @@ export const banquetGuide = {
 };
 
 export const roomsGuide = {
-  heading: "Hotel Rooms near Banaras Railway Station, Varanasi",
+  heading: "3 Star Hotel Rooms near Banaras Railway Station, Varanasi",
   intro: [
-    "The Elegance is a boutique hotel on DLW Road, near Banaras Railway Station, with 27 air-conditioned rooms: 19 Standard Rooms, 6 Premium Rooms and 2 Suites. Breakfast is included with every room tariff.",
+    "The Elegance is a 3-star boutique hotel on DLW Road, near Banaras Railway Station, with 27 air-conditioned rooms: 19 Standard Rooms, 6 Premium Rooms and 2 Suites. Breakfast is included with every room tariff.",
     "The location puts BHU, Sankat Mochan and Assi Ghat within a short drive, and Kashi Vishwanath Temple about 30 minutes away. It is a practical base for pilgrims, families, wedding guests and business travellers alike.",
   ],
   facts: [
@@ -117,9 +117,9 @@ export const roomsGuide = {
     {
       title: "Choose your room",
       list: [
-        "Standard Room: 220 sq ft, from ₹5,000 per night",
-        "Premium Room: 250 sq ft, from ₹6,000 per night",
-        "Suite Room: 300 sq ft, from ₹7,500 per night",
+        "Standard Room: 220 sq ft, double bed, from ₹5,000 per night",
+        "Premium Room: 250 sq ft, twin beds, from ₹6,000 per night",
+        "Suite Room: 300 sq ft, king size bed, from ₹7,500 per night",
       ],
     },
     {
@@ -160,6 +160,14 @@ export const roomsGuide = {
     { href: "/best-banquet-budget-varanasi", label: "Banquet halls for weddings" },
   ],
   faqs: [
+    {
+      q: "Is The Elegance a 3-star hotel?",
+      a: "Yes. The Elegance is a 3-star boutique hotel on DLW Road, near Banaras Railway Station and BHU.",
+    },
+    {
+      q: "Which room is best for two friends or a parent and child?",
+      a: "The Premium Room has twin beds, so two guests get separate beds. Standard Rooms have a double bed.",
+    },
     {
       q: "What are the check-in and check-out times?",
       a: "Check-in is at 12:00 PM and check-out is at 11:00 AM.",

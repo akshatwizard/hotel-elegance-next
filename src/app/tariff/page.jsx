@@ -31,14 +31,14 @@ export default function tariffPage() {
             title: "SUITE ROOM",
             image: "/assets/dev-img/room/suite-room.jpg",
             doublePrice: "Rs. 7500",
-            features: ["Luxury Living", "Private Balcony", "King Size Bed"],
+            features: ["Luxury Living", "Extra Space", "King Size Bed"],
             highlight: "Most Popular"
         },
         {
             title: "PREMIUM ROOM",
             image: "/assets/dev-img/room/premium-room.jpg",
             doublePrice: "Rs. 6000",
-            features: ["Spacious", "Work Desk", "Double Bed"],
+            features: ["Spacious", "Work Desk", "Twin Beds"],
             highlight: "Best Value"
         },
         {
