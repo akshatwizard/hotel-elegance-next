@@ -20,6 +20,7 @@
         images: [DEFAULT_OG_IMAGE],
       },
       twitter: { card: "summary_large_image", images: [DEFAULT_OG_IMAGE.url] },
+      verification: { other: { "msvalidate.01": "A304B9ED305ED3E8CFBBF961229DBF5D" } },
     };
 
     export default function RootLayout({ children }) {
