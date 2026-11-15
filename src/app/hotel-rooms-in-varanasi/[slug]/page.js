@@ -4,6 +4,8 @@ import { roomSchema } from "@/lib/seo";
 import { buildMetadata } from "@/utils/metadata";
 import RoomDetailPage from "./RoomsDeails";
 import { getRoomBySlug, roomsData } from "@/data/roomsData";
+import SeoGuide from "@/components/SeoGuide/SeoGuide";
+import { roomGuides } from "@/data/seoContent";
 
 export const dynamicParams = false; // unknown room slugs return a real 404
 
@@ -34,6 +36,7 @@ export default async function Page({ params }) {
     <>
       <JsonLd data={roomSchema(room, slug)} />
       <RoomDetailPage />
+      <SeoGuide content={roomGuides[slug]} />
     </>
   );
 }
