@@ -54,7 +54,7 @@ export default async function FacilitiesPage() {
                                     <h2>
                                         Best Boutique Hotel in Varanasi
                                     </h2>
-                                    <p className="mt-2">We're dedicated to helping you achieve and maintain beautiful, healthy eye. Trust us to provide exceptional care tailored to you. Personalized, compassionate car</p>
+                                    <p className="mt-2">A boutique hotel on DLW Road, near Banaras Railway Station, with 27 air-conditioned rooms, a rooftop restaurant, Tafri Lounge and banquet halls. Here is everything included in your stay.</p>
                                 </div>
                             </div>
                         </div>

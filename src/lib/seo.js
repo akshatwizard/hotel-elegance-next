@@ -111,3 +111,16 @@ export function blogPostSchema(blog, slug) {
     publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
   };
 }
+
+export function faqSchema(faqs) {
+  if (!faqs || !faqs.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
