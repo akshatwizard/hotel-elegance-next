@@ -5,6 +5,9 @@ import { buildMetadata } from "@/utils/metadata";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import BlogDetailsPage from "./BlogDetailsPage";
+import BlogStay from "@/components/BlogStay/BlogStay";
+import SeoGuide from "@/components/SeoGuide/SeoGuide";
+import { blogGuides } from "@/data/seoContent";
 async function getBlogDetails(slug) {
     try {
         const apiUrl = `${API_BASE}/blog/${slug}`;
@@ -49,6 +52,8 @@ export default async function Page({ params }) {
 
             <JsonLd data={blogPostSchema(blogRes.data, slug)} />
             <BlogDetailsPage blog={blogRes.data} />
+            <SeoGuide content={blogGuides[slug]} />
+            <BlogStay slug={slug} />
         </>
     );
 }
