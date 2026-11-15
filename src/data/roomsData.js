@@ -19,7 +19,7 @@ export const roomsData = {
         "/assets/dev-img/room/suites/6.png",        
       ],
       amenities: [
-        { icon: "Bed", label: "Suite Size Bed" },
+        { icon: "Bed", label: "King Size Bed" },
         { icon: "Bath", label: "Attached Bath" },
         { icon: "Wifi", label: "High-speed WiFi" },
         { icon: "Tv", label: "Smart TV" },
@@ -43,7 +43,6 @@ export const roomsData = {
         "Daily housekeeping",
         "Room service (24/7)",
         "Mini refrigerator",
-        "Private balcony",
         "Work desk with lamp",
         "Hairdryer",
       ],
@@ -66,7 +65,7 @@ export const roomsData = {
         "/assets/dev-img/room/premium/5.jpg",
     ],
       amenities: [
-        { icon: "Bed", label: "King Bed" },
+        { icon: "Bed", label: "Twin Beds" },
         { icon: "Bath", label: "Premium Bath" },
         { icon: "Wifi", label: "High-speed WiFi" },
         { icon: "Wind", label: "AC" },
@@ -82,7 +81,7 @@ export const roomsData = {
         "Located in a prime location in Varanasi, our Hotel provide easy access to the city's main attractions, allowing you to explore the rich cultural heritage and spiritual landmarks with ease. After a day of sightseeing, return to your inviting Premium Room and unwind in comfort. Whether you're traveling for business or leisure, our Premium Rooms offer the ideal blend of convenience, comfort, and affordability for your stay in Varanasi city. ",
         
       ],
-      bedType: "Super King",
+      bedType: "Twin Beds",
       bathroomType: "Premium",
       view: "Street View",
       features: [
@@ -113,29 +112,31 @@ export const roomsData = {
         "/assets/dev-img/room/standard/6.jpg",
       ],
       amenities: [
-        { icon: "Bed", label: "Emperor Bed" },
+        { icon: "Bed", label: "Double Bed" },
         { icon: "Bath", label: "Attached Bathroom" },
         { icon: "Wifi", label: "Premium WiFi" },
         { icon: "ShieldCheck", label: "Safe" },
-        { icon: "Users", label: "Butler Service" },
+        { icon: "Sparkles", label: "Daily Housekeeping" },
         { icon: "Sparkles", label: "Luxury Toiletries" },
       ],
       size: "220 sq ft",
       occupancy: "2 Adults",
       description:
-        "The epitome of luxury with exquisite wooden furniture and endless amenities for a royal experience.",
+        "A clean, comfortable and quiet double room with fresh linen, daily housekeeping and everything you need for a restful stay.",
       detailedDescription: [
+        "Our Standard Rooms are built around the things guests notice most: a clean room, a comfortable bed and a good night's sleep. Rooms are cleaned every day, linen and towels are fresh, and each room is fully air-conditioned with power backup, so it stays cool and quiet after a long day in the city.",
+
         "Discover comfort and convenience in our double bedrooms at The Elegance Hotel in Varanasi, nestled in the heart of city. Whether you're traveling solo, with a partner, or on a business trip, our double bedrooms offer a cozy retreat for a relaxing stay. Each room is tastefully decorated and equipped with modern amenities to ensure a comfortable and enjoyable experience for our guests. ",
 
         "Located with easy accessibility to all of Varanasi's main attractions, our double bedrooms provide easy access to the city's bustling markets, ancient temples, and serene ghats along the Ganges River. After a day of exploring the sights and sounds of Varanasi, return to your inviting double bedroom and unwind in comfort. With attentive service and a convenient location, our double bedrooms offer the perfect accommodation for your visit to Varanasi city, whether you're here for business or leisure. ",
     ],
-      bedType: "Emperor",
+      bedType: "Double Bed",
       bathroomType: "Attached Bathroom",
       view: "City View",
       features: [
-        "King size bed with premium mattress",
-        "Sitting area with sofa",
-        "40-inch Smart TV",
+        "Double bed with a comfortable mattress",
+        "Fresh linen and towels",
+        "Smart TV",
         "Mini refrigerator",
         "Electronic safe",
         "Bathrobe & slippers",
