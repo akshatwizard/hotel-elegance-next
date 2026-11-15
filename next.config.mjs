@@ -19,6 +19,13 @@ const nextConfig = {
         destination: "https://www.theelegance.co.in/:path*",
         permanent: true,
       },
+      // Production alias on vercel.app is a duplicate copy of the site.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "hotel-elegance-next-phi.vercel.app" }],
+        destination: "https://www.theelegance.co.in/:path*",
+        permanent: true,
+      },
       // Old PHP site URLs still indexed by Google -> new clean URLs.
       { source: "/index.php", destination: "/", permanent: true },
       { source: "/:path*.php", destination: "/:path*", permanent: true },
